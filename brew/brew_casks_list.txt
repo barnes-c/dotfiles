@@ -1,0 +1,9 @@
+gimp
+google-chrome
+iterm2
+maccy
+mattermost
+obs
+shottr
+spotify
+stats

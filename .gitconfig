@@ -1,0 +1,8 @@
+[user]
+	email = christopher@barnes.biz
+	name = Christopher Barnes
+	signingkey = 41B77F78B44F1BDB820421AC483CA031753F7C6D
+[commit]
+	gpgSign = true
+[gpg]
+	program = /opt/homebrew/bin/gpg
