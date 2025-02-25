@@ -1,7 +1,7 @@
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-ln -s ./shell/.zshrc ~/.zshrc
-ln -s ./.gitconfig ~/.gitconfig
+ln -s $HOME/Code/dotfiles/shell/.zshrc ~/.zshrc
+ln -s $HOME/Code/dotfiles/shell/.gitconfig ~/.gitconfig
 
 source ~/.zshrc
 
