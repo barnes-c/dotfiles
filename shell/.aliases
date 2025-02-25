@@ -68,5 +68,6 @@ alias reload="exec ${SHELL} -l"
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
 
-# CERN OpenStack authentication
-alias os="source $HOME/Code/personal/dotfiles/shell/cern-openrc.sh"
+# Easier access to python
+alias py='python3'
+alias python='python3'
