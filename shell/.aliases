@@ -8,9 +8,9 @@ alias .....="cd ../../../.."
 alias -- -="cd -"
 
 # SSH connections
-alias pi="ssh chris@??? -i $HOME/.ssh/personal"
-alias home="ssh chris@barnes.biz -i $HOME/.ssh/personal"
-alias aiadm="ssh chbarnes@aiadm"
+alias pi="ssh barnes-c@149.172.149.206 -i $HOME/.ssh/homelab"
+alias home="ssh chris@barnes.biz -i $HOME/.ssh/homelab"
+alias aiadm="ssh chbarnes@aiadm -i $HOME/.ssh/cern"
 
 # Shortcuts
 alias dl="cd ~/Downloads"
@@ -67,3 +67,6 @@ alias reload="exec ${SHELL} -l"
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
+
+# CERN OpenStack authentication
+alias os="source $HOME/Code/personal/dotfiles/shell/cern-openrc.sh"
