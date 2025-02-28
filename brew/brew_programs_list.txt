@@ -48,6 +48,7 @@ ruby
 sqlite
 sshpass
 terraform
+tflint
 unbound
 xz
 yubikey-agent

@@ -68,6 +68,7 @@ alias reload="exec ${SHELL} -l"
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
 
-# Easier access to python
+# Easier access to commands
 alias py='python3'
 alias python='python3'
+alias tf='terraform'
