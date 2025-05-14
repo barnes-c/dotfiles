@@ -1,3 +1,4 @@
+discord
 gimp
 google-chrome
 iterm2
