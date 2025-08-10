@@ -1,0 +1,40 @@
+[user]
+	email 	   = christopher@barnes.biz
+	name 	   = Christopher Barnes
+	signingkey = 41B77F78B44F1BDB820421AC483CA031753F7C6D
+
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+
+[commit]
+	gpgSign = true
+
+[credential]
+	helper = store
+
+[diff]
+        tool = vimdiff
+
+[difftool]
+        prompt = false
+
+[gpg]
+	program = /opt/homebrew/bin/gpg
+
+[core]
+	editor = "vim"
+	excludesfile = ~/.gitignore.global
+
+[pull]
+	rebase = true
+
+[push]
+	default = current
+
+[init]
+	defaultBranch = master
+
+[includeIf "gitdir:/Users/barnes-c/Code/cern/"]
+    path = /Users/barnes-c/.gitconfig.cern
