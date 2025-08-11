@@ -4,6 +4,15 @@ ZSH_THEME="robbyrussell"
 plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
+# === Homebrew Setup ===
+export HOMEBREW_NO_ANALYTICS=1
+if [[ -x /opt/homebrew/bin/brew ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+else
+  [[ -d /opt/homebrew/bin ]] && path=(/opt/homebrew/bin /opt/homebrew/sbin $path)
+fi
+typeset -U path PATH
+
 # === Node Version Manager (NVM) Setup ===
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
@@ -25,7 +34,6 @@ export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/b
 export PATH="$PATH:$(go env GOPATH)/bin"
 # YubiKey
 export SSH_AUTH_SOCK="$(brew --prefix)/var/run/yubikey-agent.sock"
-
 
 # === Aliases ===
 source $HOME/.aliases  
