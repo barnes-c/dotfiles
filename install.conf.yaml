@@ -6,11 +6,11 @@
 - clean: ["~"]
 
 - link:
+          /etc/krb5.conf: krb5.conf
           ~/.aliases: aliases
           ~/.gitconfig: gitconfig
           ~/.gitconfig.cern: gitconfig.cern
-          ~/.ssh/git_signers: gitconfig.signers
           ~/.gitignore: gitignore
-          /etc/krb5.conf: krb5.conf
           ~/.ssh/config: sshconfig
+          ~/.ssh/git_signers: gitconfig.signers
           ~/.zshrc: zshrc
