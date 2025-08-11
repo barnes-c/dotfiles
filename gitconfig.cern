@@ -1,0 +1,10 @@
+[user]
+        name = Christopher Barnes
+        email = christopher.barnes@cern.ch
+        signingkey = ~/.ssh/cern.pub
+
+[gpg]
+        format = ssh
+
+[commit]
+        gpgsign = true

@@ -28,9 +28,4 @@ export SSH_AUTH_SOCK="$(brew --prefix)/var/run/yubikey-agent.sock"
 
 
 # === Aliases ===
-source $HOME/Code/dotfiles/shell/.aliases  
-
-# === Auto completes ===
-autoload -U +X bashcompinit && bashcompinit
-autoload -U compinit && compinit
-complete -o nospace -C /opt/homebrew/bin/terraform terraform
+source $HOME/.aliases  
