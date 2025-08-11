@@ -1,6 +1,6 @@
 [user]
-	email 	   = christopher@barnes.biz
-	name 	   = Christopher Barnes
+	email      = christopher@barnes.biz
+	name       = Christopher Barnes
 	signingkey = ~/.ssh/personal.pub
 
 [color]
@@ -15,13 +15,16 @@
 	helper = store
 
 [diff]
-        tool = vimdiff
+	tool = vimdiff
 
 [difftool]
-        prompt = false
+	prompt = false
 
 [gpg]
 	format = ssh
+
+[gpg "ssh"]
+	allowedSignersFile = ~/.ssh/git_signers
 
 [core]
 	editor = "vim"
@@ -37,4 +40,4 @@
 	defaultBranch = master
 
 [includeIf "gitdir:/Users/barnes-c/Code/cern/"]
-    path = /Users/barnes-c/.gitconfig.cern
+	path = /Users/barnes-c/.gitconfig.cern
