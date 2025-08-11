@@ -1,7 +1,15 @@
-- clean: ['~']
+- defaults:
+          link:
+                  create: true
+                  relink: true
+
+- clean: ["~"]
 
 - link:
-    ~/.gitconfig: gitconfig
-    ~/.zshrc: zshrc
-
-
+          ~/.aliases: aliases
+          ~/.gitconfig: gitconfig
+          ~/.gitconfig.cern: gitconfig.cern
+          ~/.gitignore: gitignore
+          ~/krb5.conf: krb5.conf
+          ~/.ssh/config: sshconfig
+          ~/.zshrc: zshrc
