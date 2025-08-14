@@ -11,6 +11,6 @@
           ~/.gitconfig.cern: gitconfig.cern
           ~/.ssh/git_signers: gitconfig.signers
           ~/.gitignore: gitignore
-          ~/krb5.conf: krb5.conf
+          /etc/krb5.conf: krb5.conf
           ~/.ssh/config: sshconfig
           ~/.zshrc: zshrc
