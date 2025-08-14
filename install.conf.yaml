@@ -10,7 +10,7 @@
           ~/.aliases: aliases
           ~/.gitconfig: gitconfig
           ~/.gitconfig.cern: gitconfig.cern
+          ~/.ssh/git_signers: gitconfig.signers
           ~/.gitignore: gitignore
           ~/.ssh/config: sshconfig
-          ~/.ssh/git_signers: gitconfig.signers
           ~/.zshrc: zshrc
