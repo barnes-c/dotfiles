@@ -34,6 +34,8 @@ export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/b
 export PATH="$PATH:$(go env GOPATH)/bin"
 # YubiKey
 export SSH_AUTH_SOCK="$(brew --prefix)/var/run/yubikey-agent.sock"
+# Kubernetes
+export KUBECONFIG="$HOME/.kube/config"
 
 # === Aliases ===
 source $HOME/.aliases  
