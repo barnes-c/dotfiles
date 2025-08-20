@@ -1,7 +1,7 @@
 [user]
 	email      = christopher@barnes.biz
 	name       = Christopher Barnes
-	signingkey = ~/.ssh/personal.pub
+	signingkey = ~/.ssh/cern.pub
 
 [color]
 	diff = auto
@@ -39,6 +39,9 @@
 
 [init]
 	defaultBranch = master
+
+[includeIf "gitdir:/afs/cern.ch/user/c/chbarnes/"]
+    path = ~/.gitconfig.cern
 
 [includeIf "gitdir:/Users/barnes-c/Code/cern/"]
 	path = /Users/barnes-c/.gitconfig.cern
