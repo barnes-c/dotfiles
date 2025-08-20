@@ -6,7 +6,7 @@
 - clean: ["~"]
 
 - link:
-          /etc/krb5.conf: krb5.conf
+          ~/krb5.conf: krb5.conf
           ~/.aliases: aliases
           ~/.gitconfig: gitconfig
           ~/.gitconfig.cern: gitconfig.cern

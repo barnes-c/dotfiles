@@ -34,6 +34,11 @@ export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/b
 export PATH="$PATH:$(go env GOPATH)/bin"
 # YubiKey
 export SSH_AUTH_SOCK="$(brew --prefix)/var/run/yubikey-agent.sock"
+# Kubernetes
+export KUBECONFIG="$HOME/.kube/config"
+# Kerberos
+export KRB5_CONFIG="~/krb5.conf"
+export KRB5CCNAME="FILE:/run/user/180653/krb5cc"
 
 # === Aliases ===
 source $HOME/.aliases  
