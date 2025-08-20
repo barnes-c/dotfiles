@@ -11,6 +11,8 @@ grep -q '^default-cache-ttl ' ~/.gnupg/gpg-agent.conf || echo "default-cache-ttl
 grep -q '^max-cache-ttl ' ~/.gnupg/gpg-agent.conf || echo "max-cache-ttl 86400" >> ~/.gnupg/gpg-agent.conf
 
 # === Exports ===
+# AIADM/LxPlus bin
+export PATH=$PATH:/afs/cern.ch/user/c/chbarnes/bin
 # Kubernetes
 export KUBECONFIG="$HOME/.kube/config"
 # Kerberos
