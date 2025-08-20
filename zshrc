@@ -14,8 +14,10 @@ fi
 typeset -U path PATH
 
 # === GPG Agent Configuration ===
-echo "default-cache-ttl 3600" >> ~/.gnupg/gpg-agent.conf
-echo "max-cache-ttl 86400" >> ~/.gnupg/gpg-agent.conf
+mkdir -p ~/.gnupg
+touch ~/.gnupg/gpg-agent.conf
+grep -q '^default-cache-ttl ' ~/.gnupg/gpg-agent.conf || echo "default-cache-ttl 3600" >> ~/.gnupg/gpg-agent.conf
+grep -q '^max-cache-ttl ' ~/.gnupg/gpg-agent.conf || echo "max-cache-ttl 86400" >> ~/.gnupg/gpg-agent.conf
 
 # === PATH and Compiler Flags ===
 # Prepend Python and OpenSSL paths so they take priority.
