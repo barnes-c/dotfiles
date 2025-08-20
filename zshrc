@@ -13,11 +13,6 @@ else
 fi
 typeset -U path PATH
 
-# === Node Version Manager (NVM) Setup ===
-export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion"
-
 # === GPG Agent Configuration ===
 echo "default-cache-ttl 3600" >> ~/.gnupg/gpg-agent.conf
 echo "max-cache-ttl 86400" >> ~/.gnupg/gpg-agent.conf
