@@ -24,3 +24,10 @@ Host lxtunnel.cern.ch lxplus.cern.ch aiadm.cern.ch lxtunnel lxplus aiadm
     # SOCKS5 proxy for web, see below
     DynamicForward 8090   
     ExitOnForwardFailure no
+
+# Some specifics for if logging in as root or user
+Match Host *.cern.ch User root
+    # Don't forward my personal krb tickets when logging in as root.
+    GSSAPIDelegateCredentials no
+    ForwardAgent no
+    PubkeyAuthentication yes
