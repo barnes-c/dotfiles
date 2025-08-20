@@ -42,3 +42,6 @@
 
 [includeIf "gitdir:/afs/cern.ch/user/c/chbarnes/"]
     path = ~/.gitconfig.cern
+
+[includeIf "gitdir:/Users/barnes-c/Code/cern/"]
+	path = /Users/barnes-c/.gitconfig.cern
