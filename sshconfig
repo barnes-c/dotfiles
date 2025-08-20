@@ -1,15 +1,9 @@
-Host 149.172.149.206 barnes.biz
-    User barnes-c
-    AddKeysToAgent yes
-    UseKeychain yes
-    IdentityFile ~/.ssh/homelab
-
 Host github.com
     HostName github.com
     AddKeysToAgent yes
     UseKeychain yes
     User git
-    IdentityFile ~/.ssh/personal
+    IdentityFile ~/.ssh/cern
     IdentitiesOnly yes
 
 Host *.cern.ch !lxtunnel.cern.ch !lxplus.cern.ch !aiadm.cern.ch !lxtunnel !lxplus !aiadm !gitlab.cern.ch
