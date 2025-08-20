@@ -35,6 +35,7 @@
 
 [push]
 	default = current
+	autosetupremote = true
 
 [init]
 	defaultBranch = master
