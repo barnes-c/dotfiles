@@ -8,9 +8,9 @@ alias .....="cd ../../../.."
 alias -- -="cd -"
 
 # SSH connections
-alias pi="ssh barnes-c@149.172.149.206 -i $HOME/.ssh/homelab"
-alias home="ssh chris@barnes.biz -i $HOME/.ssh/homelab"
-alias aiadm="ssh chbarnes@aiadm -i $HOME/.ssh/cern"
+alias pi="ssh barnes-c@barnes.biz -i $HOME/.ssh/homelab"
+alias cloud="ssh barnes-c@barnes.cloud -i $HOME/.ssh/cloud"
+alias aiadm="ssh chbarnes@aiadm.cern.ch -i $HOME/.ssh/cern"
 
 # Shortcuts
 alias dl="cd ~/Downloads"
