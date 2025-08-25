@@ -13,13 +13,4 @@ git submodule update --init --recursive "${DOTBOT_DIR}"
 # Run Dotbot
 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"
 
-# Export Homebrew packages if brew is installed
-if command -v brew >/dev/null 2>&1; then
-  BREWFILE="${BASEDIR}/Brewfile"
-
-  # Full Brewfile (includes taps, formulas, casks, mas)
-  brew bundle dump --file="${BREWFILE}" --force >/dev/null 2>&1 && \
-    echo "Exported Brewfile to ${BREWFILE}"
-fi
-
 source $HOME/.zshrc
