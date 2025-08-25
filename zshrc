@@ -16,7 +16,7 @@ export PATH=$PATH:/afs/cern.ch/user/c/chbarnes/bin
 # Kubernetes
 export KUBECONFIG="$HOME/.kube/config"
 # Kerberos
-export KRB5_CONFIG="~/krb5.conf"
+export KRB5_CONFIG="$HOME/krb5.conf"
 export KRB5CCNAME="FILE:/run/user/180653/krb5cc"
 
 # === Aliases ===
