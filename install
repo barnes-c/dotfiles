@@ -21,3 +21,5 @@ if command -v brew >/dev/null 2>&1; then
   brew bundle dump --file="${BREWFILE}" --force >/dev/null 2>&1 && \
     echo "Exported Brewfile to ${BREWFILE}"
 fi
+
+source $HOME/.zshrc
