@@ -1,4 +1,4 @@
-Host 149.172.149.206 barnes.biz
+Host 149.172.144.12 barnes.biz
     User barnes-c
     AddKeysToAgent yes
     UseKeychain yes
