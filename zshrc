@@ -6,10 +6,8 @@ source $ZSH/oh-my-zsh.sh
 
 # === Homebrew Setup ===
 export HOMEBREW_NO_ANALYTICS=1
-if [[ -x /opt/homebrew/bin/brew ]]; then
+if [ -x /opt/homebrew/bin/brew ]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
-else
-  [[ -d /opt/homebrew/bin ]] && path=(/opt/homebrew/bin /opt/homebrew/sbin $path)
 fi
 typeset -U path PATH
 
@@ -33,6 +31,9 @@ export PATH="$PATH:$(go env GOPATH)/bin"
 export SSH_AUTH_SOCK="$(brew --prefix)/var/run/yubikey-agent.sock"
 # Kubernetes
 export KUBECONFIG="$HOME/.kube/config"
+
+# === nTunes Setup ===
+defaults write digital.twisted.noTunes replacement /Applications/Spotify.app
 
 # === Aliases ===
 source $HOME/.aliases  
