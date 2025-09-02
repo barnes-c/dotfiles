@@ -18,15 +18,18 @@ grep -q '^default-cache-ttl ' ~/.gnupg/gpg-agent.conf || echo "default-cache-ttl
 grep -q '^max-cache-ttl ' ~/.gnupg/gpg-agent.conf || echo "max-cache-ttl 86400" >> ~/.gnupg/gpg-agent.conf
 
 # === PATH and Compiler Flags ===
-# Prepend Python and OpenSSL paths so they take priority.
-export PATH="$HOME/Library/Python/3.9/bin:$PATH"
+# Prepend OpenSSL paths so they take priority
 export PATH="/opt/homebrew/opt/openssl/bin:$PATH"
 export LDFLAGS="-L/opt/homebrew/opt/openssl/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/openssl/include"
 export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl/lib/pkgconfig"
-# Append VS Code and Go paths.
+# VS Code
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-export PATH="$PATH:$(go env GOPATH)/bin"
+# Python
+export PATH="$HOME/Library/Python/3.9/bin:$PATH"
+# Go
+export GOPATH=$(go env GOPATH 2>/dev/null || echo "$HOME/go")
+export PATH=$PATH:$GOPATH/bin
 # YubiKey
 export SSH_AUTH_SOCK="$(brew --prefix)/var/run/yubikey-agent.sock"
 # Kubernetes
