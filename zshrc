@@ -36,4 +36,4 @@ export KUBECONFIG="$HOME/.kube/config"
 defaults write digital.twisted.noTunes replacement /Applications/Spotify.app
 
 # === Aliases ===
-source $HOME/.aliases  
+source $HOME/.aliases
