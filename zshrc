@@ -22,8 +22,5 @@ export KUBECONFIG="$HOME/.kube/config"
 export KRB5_CONFIG="$HOME/krb5.conf"
 export KRB5CCNAME="FILE:/run/user/180653/krb5cc"
 
-# === nTunes Setup ===
-defaults write digital.twisted.noTunes replacement /Applications/Spotify.app
-
 # === Aliases ===
 source $HOME/.aliases
