@@ -13,11 +13,17 @@ grep -q '^max-cache-ttl ' ~/.gnupg/gpg-agent.conf || echo "max-cache-ttl 86400" 
 # === Exports ===
 # AIADM/LxPlus bin
 export PATH=$PATH:/afs/cern.ch/user/c/chbarnes/bin
+# Go
+export GOPATH=$(go env GOPATH 2>/dev/null || echo "$HOME/go")
+export PATH=$PATH:$GOPATH/bin
 # Kubernetes
 export KUBECONFIG="$HOME/.kube/config"
 # Kerberos
 export KRB5_CONFIG="$HOME/krb5.conf"
 export KRB5CCNAME="FILE:/run/user/180653/krb5cc"
 
+# === nTunes Setup ===
+defaults write digital.twisted.noTunes replacement /Applications/Spotify.app
+
 # === Aliases ===
-source $HOME/.aliases  
+source $HOME/.aliases
