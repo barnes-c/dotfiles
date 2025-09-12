@@ -17,7 +17,6 @@ Host pi-cluster
     ProxyJump pi4
     IdentityFile ~/.ssh/homelab
 
-
 Host github.com
     HostName github.com
     AddKeysToAgent yes
