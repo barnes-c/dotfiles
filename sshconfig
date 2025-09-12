@@ -1,8 +1,22 @@
-Host 149.172.144.12 barnes.biz
+Host pi4
+    HostName barnes.biz
     User barnes-c
     AddKeysToAgent yes
     UseKeychain yes
     IdentityFile ~/.ssh/homelab
+
+Host pi-nas
+    HostName 192.168.178.100
+    User barnes-c
+    ProxyJump pi4
+    IdentityFile ~/.ssh/homelab
+
+Host pi-cluster
+    HostName 192.168.178.200
+    User barnes-c
+    ProxyJump pi4
+    IdentityFile ~/.ssh/homelab
+
 
 Host github.com
     HostName github.com

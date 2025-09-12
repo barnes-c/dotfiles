@@ -8,8 +8,9 @@ alias .....="cd ../../../.."
 alias -- -="cd -"
 
 # SSH connections
-alias pi="ssh barnes-c@barnes.biz -i $HOME/.ssh/homelab"
-alias cloud="ssh barnes-c@barnes.cloud -i $HOME/.ssh/cloud"
+alias pi="ssh pi4"
+alias nas="ssh pi-nas"
+alias cluster="ssh pi-cluster"
 alias aiadm="ssh chbarnes@aiadm.cern.ch -i $HOME/.ssh/cern"
 
 # Shortcuts
@@ -46,7 +47,7 @@ alias sudo='sudo '
 alias week='date +%V'
 
 # Get macOS Software Updates, and update installed Homebrew packages, and Xcode
-alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; mas upgrade 497799835 || true'
+alias update='sudo softwareupdate -i -a; mas upgrade 497799835 || true; brew update; brew upgrade; brew cleanup'
 
 alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
 
@@ -73,5 +74,7 @@ alias path='echo -e ${PATH//:/\\n}'
 # Easier access to commands
 alias py='python3'
 alias python='python3'
+alias docker='podman'
 alias tf='terraform'
 alias k='kubectl'
+alias pip='pip3'
