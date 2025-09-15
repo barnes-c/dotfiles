@@ -1,5 +1,5 @@
 Host pi4
-    HostName barnes.biz
+    HostName 149.172.144.12
     User barnes-c
     AddKeysToAgent yes
     UseKeychain yes
