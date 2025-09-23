@@ -14,12 +14,18 @@ alias cluster="ssh pi-cluster"
 alias aiadm="ssh chbarnes@aiadm.cern.ch -i $HOME/.ssh/cern"
 
 # Shortcuts
+alias c="cd ~/Code"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
-alias c="cd ~/Code"
 alias g="git"
-alias gp="git push"
+alias ga="git add ."
 alias gc="git commit"
+alias gp="git push"
+alias k='kubectl'
+alias pip='pip3'
+alias py='python3'
+alias python='python3'
+alias tf='terraform'
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -70,11 +76,3 @@ alias reload="exec ${SHELL} -l"
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
-
-# Easier access to commands
-alias py='python3'
-alias python='python3'
-alias docker='podman'
-alias tf='terraform'
-alias k='kubectl'
-alias pip='pip3'
