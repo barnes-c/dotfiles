@@ -6,7 +6,6 @@
 - clean: ["~"]
 
 - link:
-          /etc/hosts: hosts
           ~/.aliases: aliases
           ~/.bash_profile: bash_profile
           ~/.gitconfig: gitconfig
