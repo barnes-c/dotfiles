@@ -5,6 +5,12 @@ Host github.com
     IdentityFile ~/.ssh/cern
     IdentitiesOnly yes
 
+Host gitlab.cern.ch
+    HostName gitlab.cern.ch
+    User git
+    IdentitiesOnly yes
+    IdentityFile ~/.ssh/cern
+
 Host *.cern.ch !lxtunnel.cern.ch !lxplus.cern.ch !aiadm.cern.ch !lxtunnel !lxplus !aiadm !gitlab.cern.ch
     User chbarnes
     ProxyJump lxtunnel.cern.ch
