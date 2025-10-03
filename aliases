@@ -16,6 +16,7 @@ alias aiadm="ssh chbarnes@aiadm.cern.ch -i $HOME/.ssh/cern"
 # Shortcuts
 alias c="cd ~/Code"
 alias dl="cd ~/Downloads"
+alias docker='podman'
 alias dt="cd ~/Desktop"
 alias g="git"
 alias ga="git add ."

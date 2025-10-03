@@ -6,7 +6,6 @@
 - clean: ["~"]
 
 - link:
-          /etc/hosts: hosts
           /etc/krb5.conf: krb5.conf
           ~/.aliases: aliases
           ~/.bash_profile: bash_profile
