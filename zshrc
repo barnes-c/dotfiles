@@ -40,3 +40,10 @@ defaults write digital.twisted.noTunes replacement /Applications/Spotify.app
 
 # === Aliases ===
 source $HOME/.aliases
+
+# bun completions
+[ -s "/Users/barnes-c/.bun/_bun" ] && source "/Users/barnes-c/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

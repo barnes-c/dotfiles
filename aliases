@@ -8,8 +8,7 @@ alias .....="cd ../../../.."
 alias -- -="cd -"
 
 # SSH connections
-alias pi="ssh pi4"
-alias nas="ssh pi-nas"
+alias pi="ssh pi5"
 alias cluster="ssh pi-cluster"
 alias aiadm="ssh chbarnes@aiadm.cern.ch -i $HOME/.ssh/cern"
 
