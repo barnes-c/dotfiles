@@ -1,9 +1,8 @@
 Host pi5
-    HostName 149.172.144.12
-    User barnes-c
-    AddKeysToAgent yes
-    UseKeychain yes
-    IdentityFile ~/.ssh/homelab
+  HostName 149.172.144.12
+  User barnes-c
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/id_rsa
 
 Host github.com
     HostName github.com
