@@ -5,6 +5,8 @@ tap "siderolabs/tap"
 tap "slp/krunkit"
 # C++ Common Libraries
 brew "abseil"
+# Utility to check whether MAC addresses are already taken on a LAN
+brew "arping"
 # Library for command-line editing
 brew "readline"
 # C string library for manipulating Unicode strings
@@ -19,12 +21,24 @@ brew "pcre2"
 brew "openssl@3"
 # YAML Parser
 brew "libyaml"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.14"
 # Tool to obtain certs from Let's Encrypt and autoenable HTTPS
 brew "certbot"
 # GNU multiple precision arithmetic library
 brew "gmp"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
+# Tool for interacting with remote images and registries
+brew "crane"
+# Play, record, convert, and stream select audio and video codecs
+brew "ffmpeg"
+# Collection of GNU find, xargs, and locate
+brew "findutils"
+# Distributed revision control system
+brew "git"
+# Open-source GitLab command-line tool
+brew "glab"
 # Asynchronous event library
 brew "libevent"
 # International domain name library (IDNA2008, Punycode and TR46)
@@ -41,14 +55,6 @@ brew "p11-kit"
 brew "unbound"
 # GNU Transport Layer Security (TLS) Library
 brew "gnutls"
-# Play, record, convert, and stream audio and video
-brew "ffmpeg"
-# Collection of GNU find, xargs, and locate
-brew "findutils"
-# Distributed revision control system
-brew "git"
-# Open-source GitLab command-line tool
-brew "glab"
 # Common error values for all GnuPG components
 brew "libgpg-error"
 # Assuan IPC Library
@@ -81,8 +87,12 @@ brew "latexindent"
 brew "mas"
 # Collection of tools that nobody wrote when UNIX was young
 brew "moreutils"
+# Port scanning utility for large networks
+brew "nmap"
 # Drop-in replacement for Terraform. Infrastructure as Code Tool
 brew "opentofu"
+# OCI Registry As Storage
+brew "oras"
 # Pinentry for GPG on Mac
 brew "pinentry-mac"
 # Execute binaries from Python packages in isolated environments
@@ -99,6 +109,8 @@ brew "python-matplotlib"
 brew "ripgrep"
 # Powerful, clean, object-oriented scripting language
 brew "ruby"
+# Configuration helper for talos clusters
+brew "talhelper"
 # Tool to generate documentation from Terraform modules
 brew "terraform-docs"
 # Extremely fast LaTeX formatter written in Rust
@@ -109,20 +121,22 @@ brew "tflint"
 brew "tfsec"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
+# Internet file retriever
+brew "wget"
 # Tools for the WireGuard secure network tunnel
 brew "wireguard-tools"
 # Linter for YAML files
 brew "yamllint"
 # Sort Terraform files
 brew "alexnabokikh/tfsort/tfsort"
-# Terraform
-brew "hashicorp/tap/terraform"
 # CLI for out-of-band management of Kubernetes nodes created by Talos
 brew "siderolabs/tap/talosctl"
 # A CLI tool to start Linux KVM or macOS Hypervisor framework virtual machines using the libkrun platform.
 brew "slp/krunkit/krunkit"
 # Compact TeX distribution as alternative to the full TeX Live / MacTeX
 cask "basictex"
+# Terminal-based AI coding assistant
+cask "claude-code"
 # Voice and text chat software
 cask "discord"
 # Web browser
@@ -133,8 +147,6 @@ cask "gimp"
 cask "google-chrome"
 # Terminal emulator as alternative to Apple's Terminal app
 cask "iterm2"
-# Web browser
-cask "librewolf"
 # Clipboard manager
 cask "maccy"
 # Open-source, self-hosted Slack-alternative
@@ -169,9 +181,9 @@ mas "WireGuard", id: 1451685025
 mas "Xcode", id: 497799835
 vscode "4ops.terraform"
 vscode "aaron-bond.better-comments"
+vscode "anthropic.claude-code"
 vscode "asciidoctor.asciidoctor-vscode"
 vscode "bierner.markdown-mermaid"
-vscode "christian-kohler.npm-intellisense"
 vscode "christian-kohler.path-intellisense"
 vscode "davidanson.vscode-markdownlint"
 vscode "dbaeumer.vscode-eslint"
@@ -185,37 +197,21 @@ vscode "gitlab.gitlab-workflow"
 vscode "golang.go"
 vscode "hashicorp.terraform"
 vscode "ibm.output-colorizer"
-vscode "james-yu.latex-workshop"
 vscode "mads-hartmann.bash-ide-vscode"
 vscode "mechatroner.rainbow-csv"
 vscode "ms-azuretools.vscode-containers"
 vscode "ms-kubernetes-tools.vscode-kubernetes-tools"
-vscode "ms-python.black-formatter"
-vscode "ms-python.debugpy"
-vscode "ms-python.python"
-vscode "ms-python.vscode-pylance"
-vscode "ms-python.vscode-python-envs"
-vscode "ms-toolsai.jupyter"
-vscode "ms-toolsai.jupyter-keymap"
-vscode "ms-toolsai.jupyter-renderers"
-vscode "ms-toolsai.vscode-jupyter-cell-tags"
-vscode "ms-toolsai.vscode-jupyter-slideshow"
 vscode "ms-vscode-remote.remote-ssh"
 vscode "ms-vscode-remote.remote-ssh-edit"
 vscode "ms-vscode.makefile-tools"
 vscode "ms-vscode.remote-explorer"
 vscode "opentofu.vscode-opentofu"
-vscode "puppet.puppet-vscode"
 vscode "redhat.vscode-yaml"
-vscode "tfsec.tfsec"
 vscode "tomoki1207.pdf"
-vscode "tsandall.opa"
 vscode "usernamehw.errorlens"
 vscode "vincaslt.highlight-matching-tag"
 vscode "vscode-icons-team.vscode-icons"
 vscode "waderyan.gitblame"
-vscode "whizkydee.material-palenight-theme"
-vscode "zignd.html-css-class-completion"
 go "github.com/go-delve/delve/cmd/dlv"
 go "github.com/fatih/gomodifytags"
 go "github.com/haya14busa/goplay/cmd/goplay"

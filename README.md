@@ -14,6 +14,12 @@ To install the brew formulas, casks and taps run following command:
 brew bundle --file ./Brewfile
 ```
 
+and to update the Brewfile you can export it with:
+
+```bash
+brew bundle dump --describe --force
+```
+
 ## License
 
 - This repository is licensed under the [GNU AGPLv3](https://github.com/barnes-c/dotfiles/blob/master/LICENSE).
