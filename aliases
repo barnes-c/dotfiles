@@ -1,11 +1,8 @@
-#!/usr/bin/env bash
-
 # Easier navigation
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
-alias -- -="cd -"
 
 # SSH connections
 alias pi="ssh pi5"
@@ -13,10 +10,10 @@ alias cluster="ssh pi-cluster"
 alias aiadm="ssh chbarnes@aiadm.cern.ch -i $HOME/.ssh/cern"
 
 # Shortcuts
-alias c="cd ~/Code"
-alias dl="cd ~/Downloads"
+alias c="cd $HOME/Code"
+alias dl="cd $HOME/Downloads"
 alias docker='podman'
-alias dt="cd ~/Desktop"
+alias dt="cd $HOME/Desktop"
 alias g="git"
 alias ga="git add ."
 alias gc="git commit"
