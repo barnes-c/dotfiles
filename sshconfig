@@ -1,9 +1,3 @@
-Host pi5
-  HostName 149.172.144.12
-  User barnes-c
-  IdentitiesOnly yes
-  IdentityFile ~/.ssh/id_rsa
-
 Host github.com
     HostName github.com
     AddKeysToAgent yes
@@ -11,6 +5,12 @@ Host github.com
     User git
     IdentityFile ~/.ssh/personal
     IdentitiesOnly yes
+
+Host gitlab.cern.ch
+    HostName gitlab.cern.ch
+    User git
+    Port 7999
+    IdentityFile ~/.ssh/cern
 
 Host *.cern.ch !lxtunnel.cern.ch !lxplus.cern.ch !aiadm.cern.ch !lxtunnel !lxplus !aiadm !gitlab.cern.ch
     User chbarnes
