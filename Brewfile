@@ -87,8 +87,6 @@ brew "pinentry-mac"
 brew "pipx"
 # Tool for managing OCI containers and pods
 brew "podman"
-# Framework for managing multi-language pre-commit hooks
-brew "pre-commit"
 # Protocol buffers (Google's data interchange format)
 brew "protobuf"
 # Search tool like grep and The Silver Searcher
