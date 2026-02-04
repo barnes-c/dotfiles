@@ -1,6 +1,5 @@
 tap "alexnabokikh/tfsort"
 tap "go-swagger/go-swagger"
-tap "hashicorp/tap"
 tap "siderolabs/tap"
 tap "slp/krunkit"
 # C++ Common Libraries
@@ -71,8 +70,6 @@ brew "helm"
 brew "jq"
 # Kubernetes command-line interface
 brew "kubernetes-cli"
-# Add indentation to LaTeX files
-brew "latexindent"
 # YAML Parser
 brew "libyaml"
 # Mac App Store command-line interface
@@ -107,8 +104,6 @@ brew "alexnabokikh/tfsort/tfsort"
 brew "siderolabs/tap/talosctl"
 # A CLI tool to start Linux KVM or macOS Hypervisor framework virtual machines using the libkrun platform.
 brew "slp/krunkit/krunkit"
-# Compact TeX distribution as alternative to the full TeX Live / MacTeX
-cask "basictex"
 # Voice and text chat software
 cask "discord"
 # Web browser
