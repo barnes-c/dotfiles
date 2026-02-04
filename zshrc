@@ -7,9 +7,15 @@ plugins=(
  zsh-autosuggestions
  zsh-completions
 )
+
 autoload -U compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
+
+# Accept autosuggestion on Shift+Tab
+bindkey -M emacs '^[[Z' autosuggest-accept
+bindkey -M viins '^[[Z' autosuggest-accept
+bindkey '^[[Z' autosuggest-accept
 
 # === Homebrew Setup ===
 export HOMEBREW_NO_ANALYTICS=1
