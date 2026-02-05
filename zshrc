@@ -30,6 +30,11 @@ touch ~/.gnupg/gpg-agent.conf
 grep -q '^default-cache-ttl ' ~/.gnupg/gpg-agent.conf || echo "default-cache-ttl 3600" >> ~/.gnupg/gpg-agent.conf
 grep -q '^max-cache-ttl ' ~/.gnupg/gpg-agent.conf || echo "max-cache-ttl 86400" >> ~/.gnupg/gpg-agent.conf
 
+# === SSH Agent ===
+if [ -z "$SSH_AUTH_SOCK" ]; then
+  eval "$(ssh-agent -s)" > /dev/null
+fi
+
 # === PATH and Compiler Flags ===
 # Prepend OpenSSL paths so they take priority
 export PATH="/opt/homebrew/opt/openssl/bin:$PATH"
