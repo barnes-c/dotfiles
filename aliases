@@ -1,17 +1,17 @@
-#!/usr/bin/env bash
-
 # Easier navigation
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
-alias -- -="cd -"
 
 # SSH connections
 alias aiadm="ssh chbarnes@aiadm.cern.ch -i $HOME/.ssh/cern"
 
 # Shortcuts
-alias c="cd ~/Code"
+alias c="cd $HOME/Code"
+alias dl="cd $HOME/Downloads"
+alias docker='podman'
+alias dt="cd $HOME/Desktop"
 alias g="git"
 alias ga="git add ."
 alias gc="git commit"
@@ -20,7 +20,8 @@ alias k='kubectl'
 alias pip='pip3'
 alias py='python3'
 alias python='python3'
-alias tf='terraform'
+alias terraform='tofu'
+alias tf='tofu'
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`

@@ -9,6 +9,7 @@ Host gitlab.cern.ch
     HostName gitlab.cern.ch
     User git
     IdentitiesOnly yes
+    Port 7999
     IdentityFile ~/.ssh/cern
 
 Host *.cern.ch !lxtunnel.cern.ch !lxplus.cern.ch !aiadm.cern.ch !lxtunnel !lxplus !aiadm !gitlab.cern.ch

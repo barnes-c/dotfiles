@@ -45,3 +45,5 @@
 
 [includeIf "gitdir:/Users/barnes-c/Code/cern/"]
 	path = /Users/barnes-c/.gitconfig.cern
+[safe]
+	directory = /Users/barnes-c/Code/dotfiles/dotbot

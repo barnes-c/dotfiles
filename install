@@ -1,10 +1,10 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 set -euo pipefail
 
 CONFIG="install.conf.yaml"
 DOTBOT_DIR="dotbot"
 DOTBOT_BIN="bin/dotbot"
-BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+BASEDIR="$(cd "$(dirname "${0}")" && pwd)"
 
 cd "${BASEDIR}"
 git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
@@ -18,8 +18,6 @@ if command -v brew >/dev/null 2>&1; then
   BREWFILE="${BASEDIR}/Brewfile"
 
   # Full Brewfile (includes taps, formulas, casks, mas)
-  brew bundle dump --file="${BREWFILE}" --force >/dev/null 2>&1 && \
+  brew bundle dump --file="${BREWFILE}" --describe --force >/dev/null 2>&1 && \
     echo "Exported Brewfile to ${BREWFILE}"
 fi
-
-source $HOME/.zshrc
