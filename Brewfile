@@ -16,6 +16,8 @@ brew "ca-certificates"
 brew "gmp"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@3"
 # Play, record, convert, and stream select audio and video codecs
 brew "ffmpeg"
 # Collection of GNU find, xargs, and locate
@@ -26,8 +28,6 @@ brew "pcre2"
 brew "git"
 # Open-source GitLab command-line tool
 brew "glab"
-# Cryptography and SSL/TLS Toolkit
-brew "openssl@3"
 # Asynchronous event library
 brew "libevent"
 # International domain name library (IDNA2008, Punycode and TR46)
@@ -76,6 +76,10 @@ brew "libyaml"
 brew "mas"
 # Collection of tools that nobody wrote when UNIX was young
 brew "moreutils"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.14"
+# Command-line client for OpenStack
+brew "openstackclient"
 # Drop-in replacement for Terraform. Infrastructure as Code Tool
 brew "opentofu"
 # Pinentry for GPG on Mac
