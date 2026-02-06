@@ -118,8 +118,6 @@ cask "gimp"
 cask "google-chrome"
 # Terminal emulator as alternative to Apple's Terminal app
 cask "iterm2"
-# Web browser
-cask "librewolf"
 # Clipboard manager
 cask "maccy"
 # Open-source, self-hosted Slack-alternative
