@@ -50,6 +50,8 @@ export GOPATH=$(go env GOPATH 2>/dev/null || echo "$HOME/go")
 export PATH=$PATH:$GOPATH/bin
 # Kubernetes
 export KUBECONFIG="$HOME/.kube/config"
+# Antrophic
+export ANTHROPIC_TELEMETRY=0
 
 # === nTunes Setup ===
 defaults write digital.twisted.noTunes replacement /Applications/Spotify.app
