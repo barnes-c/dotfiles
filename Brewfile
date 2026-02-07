@@ -76,8 +76,6 @@ brew "libyaml"
 brew "mas"
 # Collection of tools that nobody wrote when UNIX was young
 brew "moreutils"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.14"
 # Command-line client for OpenStack
 brew "openstackclient"
 # Drop-in replacement for Terraform. Infrastructure as Code Tool
@@ -108,6 +106,8 @@ brew "alexnabokikh/tfsort/tfsort"
 brew "siderolabs/tap/talosctl"
 # A CLI tool to start Linux KVM or macOS Hypervisor framework virtual machines using the libkrun platform.
 brew "slp/krunkit/krunkit"
+# Terminal-based AI coding assistant
+cask "claude-code"
 # Voice and text chat software
 cask "discord"
 # Web browser
@@ -168,7 +168,6 @@ vscode "docker.docker"
 vscode "donjayamanne.githistory"
 vscode "esbenp.prettier-vscode"
 vscode "formulahendry.auto-rename-tag"
-vscode "github.copilot"
 vscode "github.copilot-chat"
 vscode "gitlab.gitlab-workflow"
 vscode "golang.go"
@@ -211,6 +210,7 @@ go "github.com/haya14busa/goplay/cmd/goplay"
 go "golang.org/x/tools/gopls"
 go "github.com/cweill/gotests/gotests"
 go "github.com/josharian/impl"
+go "landb"
 go "github.com/deepmap/oapi-codegen/cmd/oapi-codegen"
 go "honnef.co/go/tools/cmd/staticcheck"
 go "github.com/hashicorp/terraform-plugin-codegen-framework/cmd/tfplugingen-framework"

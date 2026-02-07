@@ -7,6 +7,7 @@
 
 - link:
           /etc/krb5.conf: krb5.conf
+          ~/.claude: claude
           ~/.aliases: aliases
           ~/.bash_profile: bash_profile
           ~/.gitconfig: gitconfig
