@@ -28,6 +28,8 @@ brew "pcre2"
 brew "git"
 # Open-source GitLab command-line tool
 brew "glab"
+# GNU version of the tar archiving utility
+brew "gnu-tar"
 # Asynchronous event library
 brew "libevent"
 # International domain name library (IDNA2008, Punycode and TR46)
@@ -76,6 +78,8 @@ brew "libyaml"
 brew "mas"
 # Collection of tools that nobody wrote when UNIX was young
 brew "moreutils"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.14"
 # Command-line client for OpenStack
 brew "openstackclient"
 # Drop-in replacement for Terraform. Infrastructure as Code Tool
@@ -90,6 +94,8 @@ brew "podman"
 brew "protobuf"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# Tool to convert RPM package to CPIO archive
+brew "rpm2cpio"
 # Powerful, clean, object-oriented scripting language
 brew "ruby"
 # Display directories as trees (with optional color/HTML output)
@@ -98,6 +104,8 @@ brew "tree"
 brew "wireguard-tools"
 # Linter for YAML files
 brew "yamllint"
+# Process YAML, JSON, XML, CSV and properties documents from the CLI
+brew "yq"
 # UNIX shell (command interpreter)
 brew "zsh"
 # Sort Terraform files
@@ -210,7 +218,6 @@ go "github.com/haya14busa/goplay/cmd/goplay"
 go "golang.org/x/tools/gopls"
 go "github.com/cweill/gotests/gotests"
 go "github.com/josharian/impl"
-go "landb"
 go "github.com/deepmap/oapi-codegen/cmd/oapi-codegen"
 go "honnef.co/go/tools/cmd/staticcheck"
 go "github.com/hashicorp/terraform-plugin-codegen-framework/cmd/tfplugingen-framework"
