@@ -1,11 +1,3 @@
-claude/cache
-claude/debug
-claude/file-history
-claude/history.jsonl
-claude/ide
-claude/paste-cache
-claude/plans
-claude/projects
-claude/session-env
-claude/shell-snapshots
-claude/todos
+claude/*
+!claude/settings
+!claude/CLAUDE.md
