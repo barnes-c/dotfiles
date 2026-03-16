@@ -1,18 +1,20 @@
 {
-  "telemetry": false,
-  "sandbox": {
-    "enabled": true,
-    "autoAllowBashIfSandboxed": true,
-    "network": {
-      "allowedDomains": [
-        "github.com",
-        "*.claude.com",
-        "*.anthropic.com",
-        "gitlab.com"
-      ]
-    }
+  "env": {
+    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
+    "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "70"
   },
   "permissions": {
+    "allow": [
+      "WebFetch(domain:gitlab.cern.ch)",
+      "Read(//Users/barnes-c/Code/gitops-repo/**)",
+      "Bash(kubeseal --version)",
+      "Read(//Users/barnes-c/Code/**)",
+      "Bash(kubectl get svc -n sealed-secrets)",
+      "Bash(~/.local/pipx/venvs/python-landbclient/bin/python -m pip install flake8 flake8-docstrings hacking -q)",
+      "Bash(~/.local/pipx/venvs/python-landbclient/bin/python -m flake8 landbclient/tests/unit/test_client.py landbclient/tests/unit/fixtures.py)",
+      "Bash(docker manifest inspect node:22-alpine)",
+      "Bash(docker buildx imagetools inspect node:22-alpine)"
+    ],
     "deny": [
       "Read(~/.ssh/**)",
       "Read(~/.aws/**)",
@@ -26,9 +28,17 @@
     ],
     "additionalDirectories": []
   },
-
-  "env": {
-    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
-    "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "70"
-  }
+  "sandbox": {
+    "enabled": true,
+    "autoAllowBashIfSandboxed": true,
+    "network": {
+      "allowedDomains": [
+        "github.com",
+        "*.claude.com",
+        "*.anthropic.com",
+        "gitlab.com"
+      ]
+    }
+  },
+  "telemetry": false
 }
