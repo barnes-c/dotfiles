@@ -72,6 +72,8 @@ brew "helm"
 brew "jq"
 # Kubernetes command-line interface
 brew "kubernetes-cli"
+# Kubernetes controller and tool for one-way encrypted Secrets
+brew "kubeseal"
 # YAML Parser
 brew "libyaml"
 # Mac App Store command-line interface
@@ -148,23 +150,23 @@ cask "spotify"
 cask "stats"
 # Messaging app with a focus on speed and security
 cask "telegram"
+# Virtual machines UI using QEMU
+cask "utm"
 # Open-source code editor
 cask "visual-studio-code"
 # Native desktop client for WhatsApp
 cask "whatsapp"
+# Video communication and virtual meeting platform
+cask "zoom"
 mas "Developer", id: 640199958
-mas "GarageBand", id: 682658836
-mas "iMovie", id: 408981434
-mas "Keynote", id: 409183694
 mas "Microsoft Excel", id: 462058435
 mas "Microsoft PowerPoint", id: 462062816
 mas "Microsoft Word", id: 462054704
-mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
 mas "WireGuard", id: 1451685025
 mas "Xcode", id: 497799835
 vscode "4ops.terraform"
 vscode "aaron-bond.better-comments"
+vscode "ahmadalli.vscode-nginx-conf"
 vscode "anthropic.claude-code"
 vscode "asciidoctor.asciidoctor-vscode"
 vscode "bierner.markdown-mermaid"
@@ -188,6 +190,7 @@ vscode "ms-azuretools.vscode-containers"
 vscode "ms-kubernetes-tools.vscode-kubernetes-tools"
 vscode "ms-python.black-formatter"
 vscode "ms-python.debugpy"
+vscode "ms-python.flake8"
 vscode "ms-python.python"
 vscode "ms-python.vscode-pylance"
 vscode "ms-python.vscode-python-envs"
@@ -205,7 +208,6 @@ vscode "puppet.puppet-vscode"
 vscode "redhat.vscode-yaml"
 vscode "tfsec.tfsec"
 vscode "tomoki1207.pdf"
-vscode "tsandall.opa"
 vscode "usernamehw.errorlens"
 vscode "vincaslt.highlight-matching-tag"
 vscode "vscode-icons-team.vscode-icons"
