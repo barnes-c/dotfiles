@@ -12,11 +12,16 @@ Host gitlab.cern.ch
     Port 7999
     IdentityFile ~/.ssh/cern
 
-Host *.cern.ch !lxtunnel.cern.ch !lxplus.cern.ch !aiadm.cern.ch !lxtunnel !lxplus !aiadm !gitlab.cern.ch
+Host *.cern.ch !lxplus.cern.ch !ciadm.cern.ch !ciadm !aitnadm.cern.ch !aiadm.cern.ch !lxplus !aiadm !aitnadm !gitlab.cern.ch
     User chbarnes
-    ProxyJump lxtunnel.cern.ch
+    ProxyJump lxplus.cern.ch
+    PreferredAuthentications gssapi-with-mic,keyboard-interactive,password
+    GSSAPIDelegateCredentials yes
+    GSSAPIAuthentication yes
+    IdentitiesOnly yes
+    ServerAliveInterval 30
 
-Host lxtunnel.cern.ch lxplus.cern.ch aiadm.cern.ch lxtunnel lxplus aiadm
+Host ciadm.cern.ch ciadm lxtunnel.cern.ch lxplus.cern.ch aiadm.cern.ch lxtunnel lxplus aiadm 
     User chbarnes
     # if your client is configured for Kerberos
     GSSAPIDelegateCredentials yes
@@ -24,10 +29,3 @@ Host lxtunnel.cern.ch lxplus.cern.ch aiadm.cern.ch lxtunnel lxplus aiadm
     # SOCKS5 proxy for web, see below
     DynamicForward 8090   
     ExitOnForwardFailure no
-
-# Some specifics for if logging in as root or user
-Match Host *.cern.ch User root
-    # Don't forward my personal krb tickets when logging in as root.
-    GSSAPIDelegateCredentials no
-    ForwardAgent no
-    PubkeyAuthentication yes
