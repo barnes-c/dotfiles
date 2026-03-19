@@ -70,18 +70,22 @@ brew "golangci-lint"
 brew "helm"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
+# Network authentication protocol
+brew "krb5"
 # Kubernetes command-line interface
 brew "kubernetes-cli"
 # Kubernetes controller and tool for one-way encrypted Secrets
 brew "kubeseal"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.14"
 # YAML Parser
 brew "libyaml"
 # Mac App Store command-line interface
 brew "mas"
 # Collection of tools that nobody wrote when UNIX was young
 brew "moreutils"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.14"
+# OpenBSD freely-licensed SSH connectivity tools
+brew "openssh", link: false
 # Command-line client for OpenStack
 brew "openstackclient"
 # Drop-in replacement for Terraform. Infrastructure as Code Tool
