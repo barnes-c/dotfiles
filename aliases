@@ -8,6 +8,7 @@ alias .....="cd ../../../.."
 alias pi="ssh pi5"
 alias cluster="ssh pi-cluster"
 alias aiadm="ssh chbarnes@aiadm.cern.ch -i $HOME/.ssh/cern"
+alias ciadm="ssh chbarnes@ciadm.cern.ch -i $HOME/.ssh/cern"
 
 # Shortcuts
 alias c="cd $HOME/Code"
