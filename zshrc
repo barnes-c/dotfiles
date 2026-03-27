@@ -67,3 +67,6 @@ source $HOME/.aliases
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
+
+# Created by `pipx` on 2026-02-20 10:45:18
+export PATH="$PATH:/Users/barnes-c/.local/bin"
