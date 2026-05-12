@@ -1,3 +1,5 @@
+export PYTHONPATH="/Users/barnes-c/Code/cern/python-landb-rest-client:$PYTHONPATH"
+
 # === Oh My Zsh Setup ===
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"

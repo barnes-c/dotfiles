@@ -1,7 +1,6 @@
 Host github.com
     HostName github.com
     AddKeysToAgent yes
-    UseKeychain yes
     User git
     IdentityFile ~/.ssh/personal
     IdentitiesOnly yes
@@ -11,6 +10,9 @@ Host gitlab.cern.ch
     User git
     Port 7999
     IdentityFile ~/.ssh/cern
+
+Host cci-*.cern.ch
+    User root
 
 Host *.cern.ch !lxplus.cern.ch !ciadm.cern.ch !ciadm !aitnadm.cern.ch !aiadm.cern.ch !lxplus !aiadm !aitnadm !gitlab.cern.ch !ciadm !ciadm.cern.ch
     User chbarnes
@@ -30,9 +32,8 @@ Host ciadm.cern.ch ciadm lxtunnel.cern.ch lxplus.cern.ch aiadm.cern.ch lxtunnel 
     DynamicForward 8090
     ExitOnForwardFailure no
 
-# Some specifics for if logging in as root or user
-Match Host *.cern.ch User root
-    # Don't forward my personal krb tickets when logging in as root.
-    GSSAPIDelegateCredentials no
-    ForwardAgent no
-    PubkeyAuthentication yes
+ Host cci-neutron-poc-a12
+    ProxyJump ciadm
+    User root
+    GSSAPIAuthentication yes
+    GSSAPIDelegateCredentials yes

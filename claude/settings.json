@@ -40,5 +40,8 @@
       ]
     }
   },
-  "telemetry": false
+  "telemetry": false,
+  "enabledPlugins": {
+    "gopls-lsp@claude-plugins-official": true
+  }
 }
