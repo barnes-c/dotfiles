@@ -12,7 +12,10 @@ Host gitlab.cern.ch
     IdentityFile ~/.ssh/cern
 
 Host cci-*.cern.ch
+    ProxyJump ciadm
     User root
+    GSSAPIAuthentication yes
+    GSSAPIDelegateCredentials yes
 
 Host *.cern.ch !lxplus.cern.ch !ciadm.cern.ch !ciadm !aitnadm.cern.ch !aiadm.cern.ch !lxplus !aiadm !aitnadm !gitlab.cern.ch !ciadm !ciadm.cern.ch
     User chbarnes
@@ -31,9 +34,3 @@ Host ciadm.cern.ch ciadm lxtunnel.cern.ch lxplus.cern.ch aiadm.cern.ch lxtunnel 
     # SOCKS5 proxy for web, see below
     DynamicForward 8090
     ExitOnForwardFailure no
-
- Host cci-neutron-poc-a12
-    ProxyJump ciadm
-    User root
-    GSSAPIAuthentication yes
-    GSSAPIDelegateCredentials yes
