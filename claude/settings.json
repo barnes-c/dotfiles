@@ -28,6 +28,9 @@
     ],
     "additionalDirectories": []
   },
+  "enabledPlugins": {
+    "gopls-lsp@claude-plugins-official": true
+  },
   "sandbox": {
     "enabled": true,
     "autoAllowBashIfSandboxed": true,
@@ -41,7 +44,5 @@
     }
   },
   "telemetry": false,
-  "enabledPlugins": {
-    "gopls-lsp@claude-plugins-official": true
-  }
+  "model": "opus"
 }
