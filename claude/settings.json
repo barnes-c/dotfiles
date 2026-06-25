@@ -39,7 +39,22 @@
         "github.com",
         "*.claude.com",
         "*.anthropic.com",
-        "gitlab.com"
+        "gitlab.com",
+        "gitlab.cern.ch",
+        "raw.githubusercontent.com",
+        "objects.githubusercontent.com",
+        "pypi.org",
+        "files.pythonhosted.org",
+        "golang.org",
+        "go.dev",
+        "proxy.golang.org",
+        "sum.golang.org",
+        "*.googlesource.com",
+        "gopkg.in",
+        "opendev.org",
+        "*.opendev.org",
+        "openstack.org",
+        "*.openstack.org"
       ]
     }
   },
