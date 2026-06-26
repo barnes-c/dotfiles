@@ -22,6 +22,7 @@
       "Bash(kubeseal --version)",
       "Read(//Users/barnes-c/Code/**)",
       "Read(//Users/barnes-c/Code/gitops-repo/**)",
+      "Read(//Users/barnes-c/go/**)",
       "WebFetch(domain:gitlab.cern.ch)",
       "WebFetch(domain:proxy.golang.org)",
       "WebSearch",
@@ -69,7 +70,9 @@
     ],
     "defaultMode": "default",
     "additionalDirectories": [
-      "~/.puppetlabs"
+      "~/.puppetlabs",
+      "~/go",
+      "~/Code"
     ]
   },
   "enabledPlugins": {
