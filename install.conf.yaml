@@ -6,8 +6,6 @@
 - clean: ["~"]
 
 - link:
-          /etc/krb5.conf: krb5.conf
-          ~/.claude: claude
           ~/.aliases: aliases
           ~/.bash_profile: bash_profile
           ~/.gitconfig: gitconfig
@@ -16,3 +14,15 @@
           ~/.gitignore: gitignore
           ~/.ssh/config: sshconfig
           ~/.zshrc: zshrc
+          ~/.claude:
+                  path: claude
+                  if: '[ "$(uname)" = Darwin ]'
+          /etc/krb5.conf:
+                  path: krb5.conf
+                  if: '[ "$(uname)" = Darwin ]'
+          ~/krb5.conf:
+                  path: krb5.conf
+                  if: '[ "$(uname)" = Linux ]'
+          /etc/hosts:
+                  path: hosts
+                  if: '[ "$(uname)" = Linux ]'

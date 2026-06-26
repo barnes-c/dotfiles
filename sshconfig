@@ -11,22 +11,30 @@ Host gitlab.cern.ch
     Port 7999
     IdentityFile ~/.ssh/cern
 
+# cci-* root logins go through ciadm; don't forward personal krb tickets
 Host cci-*.cern.ch
     ProxyJump ciadm
     User root
-    GSSAPIAuthentication yes
-    GSSAPIDelegateCredentials yes
+    GSSAPIDelegateCredentials no
+    ForwardAgent no
+    PubkeyAuthentication yes
 
-Host *.cern.ch !lxplus.cern.ch !ciadm.cern.ch !ciadm !aitnadm.cern.ch !aiadm.cern.ch !lxplus !aiadm !aitnadm !gitlab.cern.ch !ciadm !ciadm.cern.ch
+# Any other root login on a CERN host: don't forward personal krb tickets
+Match Host *.cern.ch User root
+    GSSAPIDelegateCredentials no
+    ForwardAgent no
+    PubkeyAuthentication yes
+
+Host *.cern.ch !lxtunnel.cern.ch !lxplus.cern.ch !aiadm.cern.ch !ciadm.cern.ch !lxtunnel !lxplus !aiadm !ciadm !gitlab.cern.ch
     User chbarnes
-    ProxyJump lxplus.cern.ch
+    ProxyJump lxtunnel.cern.ch
     PreferredAuthentications gssapi-with-mic,keyboard-interactive,password
     GSSAPIDelegateCredentials yes
     GSSAPIAuthentication yes
     IdentitiesOnly yes
     ServerAliveInterval 30
 
-Host ciadm.cern.ch ciadm lxtunnel.cern.ch lxplus.cern.ch aiadm.cern.ch lxtunnel lxplus aiadm
+Host lxtunnel.cern.ch ciadm.cern.ch lxplus.cern.ch aiadm.cern.ch lxtunnel ciadm lxplus aiadm
     User chbarnes
     # if your client is configured for Kerberos
     GSSAPIDelegateCredentials yes
