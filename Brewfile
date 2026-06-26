@@ -1,8 +1,8 @@
-tap "alexnabokikh/tfsort"
-tap "go-swagger/go-swagger"
-tap "hashicorp/tap"
-tap "siderolabs/tap"
-tap "slp/krunkit"
+tap "alexnabokikh/tfsort", trusted: true
+tap "go-swagger/go-swagger", trusted: true
+tap "hashicorp/tap", trusted: true
+tap "siderolabs/tap", trusted: true
+tap "slp/krunkit", trusted: true
 # C++ Common Libraries
 brew "abseil"
 # GitOps Continuous Delivery for Kubernetes
@@ -21,10 +21,16 @@ brew "pcre2"
 brew "gmp"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
+# Container Signing
+brew "cosign"
 # Tool for interacting with remote images and registries
 brew "crane"
 # Cryptography and SSL/TLS Toolkit
 brew "openssl@3"
+# YAML Parser
+brew "libyaml"
+# Device tree compiler
+brew "dtc"
 # Play, record, convert, and stream select audio and video codecs
 brew "ffmpeg"
 # Collection of GNU find, xargs, and locate
@@ -35,8 +41,6 @@ brew "gh"
 brew "git"
 # Open-source GitLab command-line tool
 brew "glab"
-# GNU version of the tar archiving utility
-brew "gnu-tar"
 # International domain name library (IDNA2008, Punycode and TR46)
 brew "libidn2"
 # ASN.1 structure parser library
@@ -71,30 +75,30 @@ brew "gnupg"
 brew "go"
 # Fast linters runner for Go
 brew "golangci-lint"
+# Deliver Go binaries as fast and easily as possible
+brew "goreleaser"
 # Kubernetes package manager
 brew "helm"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
-# Network authentication protocol
-brew "krb5"
 # Kubernetes command-line interface
 brew "kubernetes-cli"
 # Kubernetes controller and tool for one-way encrypted Secrets
 brew "kubeseal"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.14"
-# YAML Parser
-brew "libyaml"
-# Make/rake-like build tool using Go
-brew "mage"
+# Library for handling OpenGL function pointer management
+brew "libepoxy", link: false
+# CLI for Node.js style checker and lint tool for Markdown files
+brew "markdownlint-cli"
 # Mac App Store command-line interface
 brew "mas"
+# Implementation of the Vulkan graphics and compute API on top of Metal
+brew "molten-vk"
 # Collection of tools that nobody wrote when UNIX was young
 brew "moreutils"
+# Port scanning utility for large networks
+brew "nmap"
 # Generate clients, server & docs from an OpenAPI spec (v2, v3)
 brew "openapi-generator"
-# OpenBSD freely-licensed SSH connectivity tools
-brew "openssh"
 # Command-line client for OpenStack
 brew "openstackclient"
 # Drop-in replacement for Terraform. Infrastructure as Code Tool
@@ -111,16 +115,14 @@ brew "podman-compose"
 brew "protobuf"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
-# Tool to convert RPM package to CPIO archive
-brew "rpm2cpio"
 # Powerful, clean, object-oriented scripting language
 brew "ruby", link: false
-# Command-line tool for the Amazon S3 service
-brew "s3cmd"
-# Linter for Terraform files
-brew "tflint"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
+# Executes a program periodically, showing output fullscreen
+brew "watch"
+# Internet file retriever
+brew "wget"
 # Tools for the WireGuard secure network tunnel
 brew "wireguard-tools"
 # Linter for YAML files
@@ -129,12 +131,16 @@ brew "yamllint"
 brew "yq"
 # UNIX shell (command interpreter)
 brew "zsh"
-# Vault
-brew "hashicorp/tap/vault", trusted: true
+# Sort Terraform files
+brew "alexnabokikh/tfsort/tfsort"
+# Terraform
+brew "hashicorp/tap/terraform"
+# CLI for out-of-band management of Kubernetes nodes created by Talos
+brew "siderolabs/tap/talosctl"
+# A CLI tool to start Linux KVM or macOS Hypervisor framework virtual machines using the libkrun platform.
+brew "slp/krunkit/krunkit"
 # Terminal-based AI coding assistant
 cask "claude-code"
-# Universal database tool and SQL client
-cask "dbeaver-community"
 # Voice and text chat software
 cask "discord"
 # Web browser
@@ -155,8 +161,6 @@ cask "mattermost"
 cask "notunes"
 # Open-source software for live streaming and screen recording
 cask "obs"
-# Tool to run Java Web Start-based applications after the release of Java 11
-cask "openwebstart"
 # Browse, manage, inspect containers and images
 cask "podman-desktop"
 # Imaging utility to install operating systems to a microSD card
@@ -173,21 +177,19 @@ cask "spotify"
 cask "stats"
 # Messaging app with a focus on speed and security
 cask "telegram"
-# JDK from the Eclipse Foundation (Adoptium)
-cask "temurin@17"
-# Virtual machines UI using QEMU
-cask "utm"
 # Open-source code editor
 cask "visual-studio-code"
 # Native desktop client for WhatsApp
 cask "whatsapp"
-# Connect to Windows
-cask "windows-app"
-# Video communication and virtual meeting platform
-cask "zoom"
 mas "Developer", id: 640199958
+mas "GarageBand", id: 682658836
+mas "iMovie", id: 408981434
+mas "Keynote", id: 409183694
 mas "Microsoft Excel", id: 462058435
+mas "Microsoft PowerPoint", id: 462062816
 mas "Microsoft Word", id: 462054704
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
 mas "WireGuard", id: 1451685025
 mas "Xcode", id: 497799835
 vscode "4ops.terraform"
@@ -224,16 +226,19 @@ vscode "tomoki1207.pdf"
 vscode "usernamehw.errorlens"
 vscode "vscode-icons-team.vscode-icons"
 go "github.com/go-delve/delve/cmd/dlv"
+go "github.com/kisielk/errcheck"
 go "golang.org/x/tools/cmd/goimports"
+go "github.com/golangci/golangci-lint/v2/cmd/golangci-lint"
 go "github.com/fatih/gomodifytags"
 go "github.com/haya14busa/goplay/cmd/goplay"
 go "golang.org/x/tools/gopls"
 go "github.com/cweill/gotests/gotests"
+go "golang.org/x/vuln/cmd/govulncheck"
 go "github.com/josharian/impl"
 go "landb"
 go "github.com/deepmap/oapi-codegen/cmd/oapi-codegen"
-go "roger"
+go "github.com/prometheus/promu"
 go "honnef.co/go/tools/cmd/staticcheck"
-go "certMgr"
+go "github.com/terraform-docs/terraform-docs"
 go "github.com/hashicorp/terraform-plugin-codegen-framework/cmd/tfplugingen-framework"
 go "github.com/hashicorp/terraform-plugin-codegen-openapi/cmd/tfplugingen-openapi"
