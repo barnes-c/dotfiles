@@ -5,15 +5,54 @@
   },
   "permissions": {
     "allow": [
-      "WebFetch(domain:gitlab.cern.ch)",
-      "Read(//Users/barnes-c/Code/gitops-repo/**)",
+      "Bash(~/.local/pipx/venvs/python-landbclient/bin/python -m flake8 landbclient/tests/unit/test_client.py landbclient/tests/unit/fixtures.py)",
+      "Bash(~/.local/pipx/venvs/python-landbclient/bin/python -m pip install flake8 flake8-docstrings hacking -q)",
+      "Bash(docker buildx imagetools inspect node:22-alpine)",
+      "Bash(docker manifest inspect node:22-alpine)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(go build:*)",
+      "Bash(go fmt:*)",
+      "Bash(go test:*)",
+      "Bash(go vet:*)",
+      "Bash(gofmt:*)",
+      "Bash(goimports:*)",
+      "Bash(grep:*)",
+      "Bash(kubectl get svc -n sealed-secrets)",
       "Bash(kubeseal --version)",
       "Read(//Users/barnes-c/Code/**)",
-      "Bash(kubectl get svc -n sealed-secrets)",
-      "Bash(~/.local/pipx/venvs/python-landbclient/bin/python -m pip install flake8 flake8-docstrings hacking -q)",
-      "Bash(~/.local/pipx/venvs/python-landbclient/bin/python -m flake8 landbclient/tests/unit/test_client.py landbclient/tests/unit/fixtures.py)",
-      "Bash(docker manifest inspect node:22-alpine)",
-      "Bash(docker buildx imagetools inspect node:22-alpine)"
+      "Read(//Users/barnes-c/Code/gitops-repo/**)",
+      "WebFetch(domain:gitlab.cern.ch)",
+      "WebFetch(domain:proxy.golang.org)",
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "Bash(go mod *)",
+      "Bash(make fmt *)",
+      "Bash(make lint *)",
+      "Bash(make build *)",
+      "Bash(make test *)",
+      "Bash(go test *)",
+      "Bash(yamllint -c .github/.yamllint .)",
+      "Bash(echo \"\\(yamllint exit: $?\\)\")",
+      "Bash(make check *)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(go get *)",
+      "Bash(go run *)",
+      "Bash(go list *)",
+      "Bash(go vet *)",
+      "Bash(gofmt -l .)",
+      "Bash(make)",
+      "Bash(curl -s http://localhost:10054/metrics)",
+      "Bash(yamllint .github/workflows/ci.yml)",
+      "Bash(podman compose *)",
+      "Bash(yamllint examples/k8s/*.yaml)",
+      "Bash(kubeconform -strict -ignore-missing-schemas examples/k8s/)",
+      "Bash(yamllint examples/k8s/*.yaml examples/sysconfig/* examples/systemd/*)",
+      "WebFetch(domain:packages.debian.org)",
+      "WebFetch(domain:opentelemetry.io)",
+      "Bash(yamllint -c .github/.yamllint internal/otel/testdata/)",
+      "Bash(goreleaser check *)",
+      "WebFetch(domain:goreleaser.com)"
     ],
     "deny": [
       "Read(~/.ssh/**)",
@@ -24,9 +63,14 @@
       "Read(~/.config/gh/**)",
       "Read(~/.git-credentials)",
       "Read(~/.docker/**)",
-      "Read(~/.kube/**)"
+      "Read(~/.kube/**)",
+      "Bash(git commit:*)",
+      "Skill(update-config:*)"
     ],
-    "additionalDirectories": []
+    "defaultMode": "default",
+    "additionalDirectories": [
+      "~/.puppetlabs"
+    ]
   },
   "enabledPlugins": {
     "gopls-lsp@claude-plugins-official": true
@@ -37,10 +81,10 @@
     "network": {
       "allowedDomains": [
         "github.com",
+        "gitlab.cern.ch",
         "*.claude.com",
         "*.anthropic.com",
         "gitlab.com",
-        "gitlab.cern.ch",
         "raw.githubusercontent.com",
         "objects.githubusercontent.com",
         "pypi.org",
@@ -54,10 +98,15 @@
         "opendev.org",
         "*.opendev.org",
         "openstack.org",
-        "*.openstack.org"
+        "*.openstack.org",
+        "192.168.1.10",
+        "192.168.1.11",
+        "192.168.1.12"
       ]
     }
   },
+  "awaySummaryEnabled": false,
+  "fileCheckpointingEnabled": false,
   "telemetry": false,
   "model": "opus"
 }
