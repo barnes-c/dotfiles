@@ -1,9 +1,12 @@
 tap "alexnabokikh/tfsort"
 tap "go-swagger/go-swagger"
+tap "hashicorp/tap"
 tap "siderolabs/tap"
 tap "slp/krunkit"
 # C++ Common Libraries
 brew "abseil"
+# GitOps Continuous Delivery for Kubernetes
+brew "argocd"
 # C string library for manipulating Unicode strings
 brew "libunistring"
 # GNU internationalization (i18n) and localization (l10n) library
@@ -12,48 +15,50 @@ brew "gettext"
 brew "readline"
 # Mozilla CA certificate store
 brew "ca-certificates"
+# Perl compatible regular expressions library with a new API
+brew "pcre2"
 # GNU multiple precision arithmetic library
 brew "gmp"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
+# Tool for interacting with remote images and registries
+brew "crane"
 # Cryptography and SSL/TLS Toolkit
 brew "openssl@3"
 # Play, record, convert, and stream select audio and video codecs
 brew "ffmpeg"
 # Collection of GNU find, xargs, and locate
 brew "findutils"
-# Perl compatible regular expressions library with a new API
-brew "pcre2"
+# GitHub command-line tool
+brew "gh"
 # Distributed revision control system
 brew "git"
 # Open-source GitLab command-line tool
 brew "glab"
 # GNU version of the tar archiving utility
 brew "gnu-tar"
-# Asynchronous event library
-brew "libevent"
 # International domain name library (IDNA2008, Punycode and TR46)
 brew "libidn2"
-# HTTP/2 C Library
-brew "libnghttp2"
 # ASN.1 structure parser library
 brew "libtasn1"
 # Low-level cryptographic library
 brew "nettle"
 # Library to load and enumerate PKCS#11 modules
 brew "p11-kit"
-# Validating, recursive, caching DNS resolver
-brew "unbound"
 # GNU Transport Layer Security (TLS) Library
 brew "gnutls"
 # Common error values for all GnuPG components
 brew "libgpg-error"
 # Assuan IPC Library
 brew "libassuan"
+# Asynchronous event library
+brew "libevent"
 # Cryptographic library based on the code from GnuPG
 brew "libgcrypt"
 # X.509 and CMS library
 brew "libksba"
+# HTTP/2 C Library
+brew "libnghttp2"
 # Library for USB device access
 brew "libusb"
 # New GNU portable threads library
@@ -80,12 +85,16 @@ brew "kubeseal"
 brew "python@3.14"
 # YAML Parser
 brew "libyaml"
+# Make/rake-like build tool using Go
+brew "mage"
 # Mac App Store command-line interface
 brew "mas"
 # Collection of tools that nobody wrote when UNIX was young
 brew "moreutils"
+# Generate clients, server & docs from an OpenAPI spec (v2, v3)
+brew "openapi-generator"
 # OpenBSD freely-licensed SSH connectivity tools
-brew "openssh", link: false
+brew "openssh"
 # Command-line client for OpenStack
 brew "openstackclient"
 # Drop-in replacement for Terraform. Infrastructure as Code Tool
@@ -96,6 +105,8 @@ brew "pinentry-mac"
 brew "pipx"
 # Tool for managing OCI containers and pods
 brew "podman"
+# Alternative to docker-compose using podman
+brew "podman-compose"
 # Protocol buffers (Google's data interchange format)
 brew "protobuf"
 # Search tool like grep and The Silver Searcher
@@ -103,7 +114,11 @@ brew "ripgrep"
 # Tool to convert RPM package to CPIO archive
 brew "rpm2cpio"
 # Powerful, clean, object-oriented scripting language
-brew "ruby"
+brew "ruby", link: false
+# Command-line tool for the Amazon S3 service
+brew "s3cmd"
+# Linter for Terraform files
+brew "tflint"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
 # Tools for the WireGuard secure network tunnel
@@ -114,14 +129,12 @@ brew "yamllint"
 brew "yq"
 # UNIX shell (command interpreter)
 brew "zsh"
-# Sort Terraform files
-brew "alexnabokikh/tfsort/tfsort"
-# CLI for out-of-band management of Kubernetes nodes created by Talos
-brew "siderolabs/tap/talosctl"
-# A CLI tool to start Linux KVM or macOS Hypervisor framework virtual machines using the libkrun platform.
-brew "slp/krunkit/krunkit"
+# Vault
+brew "hashicorp/tap/vault", trusted: true
 # Terminal-based AI coding assistant
 cask "claude-code"
+# Universal database tool and SQL client
+cask "dbeaver-community"
 # Voice and text chat software
 cask "discord"
 # Web browser
@@ -130,6 +143,8 @@ cask "firefox"
 cask "gimp"
 # Web browser
 cask "google-chrome"
+# Vector graphics editor
+cask "inkscape"
 # Terminal emulator as alternative to Apple's Terminal app
 cask "iterm2"
 # Clipboard manager
@@ -140,6 +155,8 @@ cask "mattermost"
 cask "notunes"
 # Open-source software for live streaming and screen recording
 cask "obs"
+# Tool to run Java Web Start-based applications after the release of Java 11
+cask "openwebstart"
 # Browse, manage, inspect containers and images
 cask "podman-desktop"
 # Imaging utility to install operating systems to a microSD card
@@ -148,48 +165,47 @@ cask "raspberry-pi-imager"
 cask "rectangle"
 # Screenshot measurement and annotation tool
 cask "shottr"
+# Instant messaging application focusing on security
+cask "signal"
 # Music streaming service
 cask "spotify"
 # System monitor for the menu bar
 cask "stats"
 # Messaging app with a focus on speed and security
 cask "telegram"
+# JDK from the Eclipse Foundation (Adoptium)
+cask "temurin@17"
 # Virtual machines UI using QEMU
 cask "utm"
 # Open-source code editor
 cask "visual-studio-code"
 # Native desktop client for WhatsApp
 cask "whatsapp"
+# Connect to Windows
+cask "windows-app"
 # Video communication and virtual meeting platform
 cask "zoom"
 mas "Developer", id: 640199958
 mas "Microsoft Excel", id: 462058435
-mas "Microsoft PowerPoint", id: 462062816
 mas "Microsoft Word", id: 462054704
 mas "WireGuard", id: 1451685025
 mas "Xcode", id: 497799835
 vscode "4ops.terraform"
 vscode "aaron-bond.better-comments"
-vscode "ahmadalli.vscode-nginx-conf"
-vscode "anthropic.claude-code"
 vscode "asciidoctor.asciidoctor-vscode"
 vscode "bierner.markdown-mermaid"
-vscode "christian-kohler.npm-intellisense"
 vscode "christian-kohler.path-intellisense"
 vscode "davidanson.vscode-markdownlint"
-vscode "dbaeumer.vscode-eslint"
 vscode "docker.docker"
 vscode "donjayamanne.githistory"
 vscode "esbenp.prettier-vscode"
-vscode "formulahendry.auto-rename-tag"
-vscode "github.copilot-chat"
 vscode "gitlab.gitlab-workflow"
 vscode "golang.go"
 vscode "hashicorp.terraform"
 vscode "ibm.output-colorizer"
-vscode "james-yu.latex-workshop"
 vscode "mads-hartmann.bash-ide-vscode"
 vscode "mechatroner.rainbow-csv"
+vscode "mekusuri.jsonl-tool"
 vscode "ms-azuretools.vscode-containers"
 vscode "ms-kubernetes-tools.vscode-kubernetes-tools"
 vscode "ms-python.black-formatter"
@@ -198,33 +214,26 @@ vscode "ms-python.flake8"
 vscode "ms-python.python"
 vscode "ms-python.vscode-pylance"
 vscode "ms-python.vscode-python-envs"
-vscode "ms-toolsai.jupyter"
-vscode "ms-toolsai.jupyter-keymap"
-vscode "ms-toolsai.jupyter-renderers"
-vscode "ms-toolsai.vscode-jupyter-cell-tags"
-vscode "ms-toolsai.vscode-jupyter-slideshow"
-vscode "ms-vscode-remote.remote-ssh"
-vscode "ms-vscode-remote.remote-ssh-edit"
 vscode "ms-vscode.makefile-tools"
-vscode "ms-vscode.remote-explorer"
 vscode "opentofu.vscode-opentofu"
 vscode "puppet.puppet-vscode"
+vscode "redhat.vscode-xml"
 vscode "redhat.vscode-yaml"
-vscode "tfsec.tfsec"
+vscode "shuworks.vscode-table-formatter"
 vscode "tomoki1207.pdf"
 vscode "usernamehw.errorlens"
-vscode "vincaslt.highlight-matching-tag"
 vscode "vscode-icons-team.vscode-icons"
-vscode "waderyan.gitblame"
-vscode "whizkydee.material-palenight-theme"
-vscode "zignd.html-css-class-completion"
 go "github.com/go-delve/delve/cmd/dlv"
+go "golang.org/x/tools/cmd/goimports"
 go "github.com/fatih/gomodifytags"
 go "github.com/haya14busa/goplay/cmd/goplay"
 go "golang.org/x/tools/gopls"
 go "github.com/cweill/gotests/gotests"
 go "github.com/josharian/impl"
+go "landb"
 go "github.com/deepmap/oapi-codegen/cmd/oapi-codegen"
+go "roger"
 go "honnef.co/go/tools/cmd/staticcheck"
+go "certMgr"
 go "github.com/hashicorp/terraform-plugin-codegen-framework/cmd/tfplugingen-framework"
 go "github.com/hashicorp/terraform-plugin-codegen-openapi/cmd/tfplugingen-openapi"
