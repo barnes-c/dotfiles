@@ -105,6 +105,11 @@
       ]
     }
   },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.sh",
+    "refreshInterval": 60
+  },
   "awaySummaryEnabled": false,
   "fileCheckpointingEnabled": false,
   "telemetry": false,
