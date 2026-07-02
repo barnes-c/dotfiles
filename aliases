@@ -11,10 +11,10 @@ alias aiadm="ssh chbarnes@aiadm.cern.ch -i $HOME/.ssh/cern"
 alias ciadm="ssh chbarnes@ciadm.cern.ch -i $HOME/.ssh/cern"
 
 # Shortcuts
-alias c="cd $HOME/Code"
-alias dl="cd $HOME/Downloads"
+alias c="cd $HOME/code"
+alias dl="cd $HOME/downloads"
 alias docker="podman"
-alias dt="cd $HOME/Desktop"
+alias dt="cd $HOME/desktop"
 alias g="git"
 alias ga="git add ."
 alias gc="git commit"
