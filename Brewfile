@@ -51,14 +51,10 @@ brew "gnutls"
 brew "libgpg-error"
 # Assuan IPC Library
 brew "libassuan"
-# Asynchronous event library
-brew "libevent"
 # Cryptographic library based on the code from GnuPG
 brew "libgcrypt"
 # X.509 and CMS library
 brew "libksba"
-# HTTP/2 C Library
-brew "libnghttp2"
 # Library for USB device access
 brew "libusb"
 # New GNU portable threads library
@@ -77,12 +73,18 @@ brew "helm"
 brew "jq"
 # Network authentication protocol
 brew "krb5"
+# FAST Kubernetes manifests validator, with support for Custom Resources!
+brew "kubeconform"
 # Kubernetes command-line interface
 brew "kubernetes-cli"
 # Kubernetes controller and tool for one-way encrypted Secrets
 brew "kubeseal"
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.14"
+# Asynchronous event library
+brew "libevent"
+# HTTP/2 C Library
+brew "libnghttp2"
 # YAML Parser
 brew "libyaml"
 # Make/rake-like build tool using Go
@@ -129,8 +131,12 @@ brew "yamllint"
 brew "yq"
 # UNIX shell (command interpreter)
 brew "zsh"
+# Sort Terraform files
+brew "alexnabokikh/tfsort/tfsort", trusted: true
 # Vault
 brew "hashicorp/tap/vault", trusted: true
+# CLI for out-of-band management of Kubernetes nodes created by Talos
+brew "siderolabs/tap/talosctl", trusted: true
 # Terminal-based AI coding assistant
 cask "claude-code"
 # Universal database tool and SQL client

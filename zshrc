@@ -88,9 +88,6 @@ fi
 if [[ "$OSTYPE" == linux* ]]; then
   # AFS bin
   export PATH=$PATH:/afs/cern.ch/user/c/chbarnes/bin
-  # Kerberos
-  export KRB5_CONFIG="$HOME/krb5.conf"
-  export KRB5CCNAME="FILE:/run/user/$(id -u)/krb5cc"
 fi
 
 # === Common ===

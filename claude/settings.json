@@ -7,53 +7,53 @@
     "allow": [
       "Bash(~/.local/pipx/venvs/python-landbclient/bin/python -m flake8 landbclient/tests/unit/test_client.py landbclient/tests/unit/fixtures.py)",
       "Bash(~/.local/pipx/venvs/python-landbclient/bin/python -m pip install flake8 flake8-docstrings hacking -q)",
+      "Bash(curl -s http://localhost:10054/metrics)",
       "Bash(docker buildx imagetools inspect node:22-alpine)",
       "Bash(docker manifest inspect node:22-alpine)",
+      "Bash(echo \"\\(yamllint exit: $?\\)\")",
       "Bash(git diff:*)",
       "Bash(git log:*)",
       "Bash(go build:*)",
       "Bash(go fmt:*)",
+      "Bash(go get *)",
+      "Bash(go list *)",
+      "Bash(go mod *)",
+      "Bash(go run *)",
+      "Bash(go test *)",
       "Bash(go test:*)",
+      "Bash(go vet *)",
       "Bash(go vet:*)",
+      "Bash(gofmt -l .)",
       "Bash(gofmt:*)",
       "Bash(goimports:*)",
+      "Bash(goreleaser check *)",
       "Bash(grep:*)",
+      "Bash(kubeconform -strict -ignore-missing-schemas examples/k8s/)",
       "Bash(kubectl get svc -n sealed-secrets)",
       "Bash(kubeseal --version)",
+      "Bash(make build *)",
+      "Bash(make check *)",
+      "Bash(make fmt *)",
+      "Bash(make lint *)",
+      "Bash(make test *)",
+      "Bash(make)",
+      "Bash(podman compose *)",
+      "Bash(yamllint -c .github/.yamllint .)",
+      "Bash(yamllint -c .github/.yamllint internal/otel/testdata/)",
+      "Bash(yamllint .github/workflows/ci.yml)",
+      "Bash(yamllint examples/k8s/*.yaml examples/sysconfig/* examples/systemd/*)",
+      "Bash(yamllint examples/k8s/*.yaml)",
       "Read(//Users/barnes-c/Code/**)",
       "Read(//Users/barnes-c/Code/gitops-repo/**)",
       "Read(//Users/barnes-c/go/**)",
-      "WebFetch(domain:gitlab.cern.ch)",
-      "WebFetch(domain:proxy.golang.org)",
-      "WebSearch",
       "WebFetch(domain:github.com)",
-      "Bash(go mod *)",
-      "Bash(make fmt *)",
-      "Bash(make lint *)",
-      "Bash(make build *)",
-      "Bash(make test *)",
-      "Bash(go test *)",
-      "Bash(yamllint -c .github/.yamllint .)",
-      "Bash(echo \"\\(yamllint exit: $?\\)\")",
-      "Bash(make check *)",
-      "WebFetch(domain:raw.githubusercontent.com)",
-      "Bash(go get *)",
-      "Bash(go run *)",
-      "Bash(go list *)",
-      "Bash(go vet *)",
-      "Bash(gofmt -l .)",
-      "Bash(make)",
-      "Bash(curl -s http://localhost:10054/metrics)",
-      "Bash(yamllint .github/workflows/ci.yml)",
-      "Bash(podman compose *)",
-      "Bash(yamllint examples/k8s/*.yaml)",
-      "Bash(kubeconform -strict -ignore-missing-schemas examples/k8s/)",
-      "Bash(yamllint examples/k8s/*.yaml examples/sysconfig/* examples/systemd/*)",
-      "WebFetch(domain:packages.debian.org)",
+      "WebFetch(domain:gitlab.cern.ch)",
+      "WebFetch(domain:goreleaser.com)",
       "WebFetch(domain:opentelemetry.io)",
-      "Bash(yamllint -c .github/.yamllint internal/otel/testdata/)",
-      "Bash(goreleaser check *)",
-      "WebFetch(domain:goreleaser.com)"
+      "WebFetch(domain:packages.debian.org)",
+      "WebFetch(domain:proxy.golang.org)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebSearch"
     ],
     "deny": [
       "Read(~/.ssh/**)",
@@ -69,11 +69,13 @@
       "Skill(update-config:*)"
     ],
     "defaultMode": "default",
-    "additionalDirectories": [
-      "~/.puppetlabs",
-      "~/go",
-      "~/Code"
-    ]
+    "additionalDirectories": ["~/.puppetlabs", "~/go", "~/Code"]
+  },
+  "model": "claude-fable-5",
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.sh",
+    "refreshInterval": 30
   },
   "enabledPlugins": {
     "gopls-lsp@claude-plugins-official": true
@@ -84,6 +86,9 @@
     "network": {
       "allowedDomains": [
         "github.com",
+        "localhost",
+        "127.0.0.1",
+        "grafana.com",
         "gitlab.cern.ch",
         "*.claude.com",
         "*.anthropic.com",
@@ -108,13 +113,7 @@
       ]
     }
   },
-  "statusLine": {
-    "type": "command",
-    "command": "~/.claude/statusline.sh",
-    "refreshInterval": 60
-  },
   "awaySummaryEnabled": false,
   "fileCheckpointingEnabled": false,
-  "telemetry": false,
-  "model": "opus"
+  "telemetry": false
 }
