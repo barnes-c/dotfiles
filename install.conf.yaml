@@ -25,4 +25,4 @@
                   if: '[ "$(uname)" = Linux ]'
           /etc/hosts:
                   path: hosts
-                  if: '[ "$(uname)" = Linux ]'
+                  if: '[ "$(uname)" = Linux ] && ! hostname -f 2>/dev/null | grep -q cern.ch'
