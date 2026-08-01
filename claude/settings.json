@@ -71,7 +71,7 @@
     "defaultMode": "default",
     "additionalDirectories": ["~/.puppetlabs", "~/go", "~/Code"]
   },
-  "model": "claude-fable-5",
+  "model": "claude-opus-5",
   "statusLine": {
     "type": "command",
     "command": "~/.claude/statusline.sh",
@@ -83,30 +83,31 @@
   "sandbox": {
     "enabled": true,
     "autoAllowBashIfSandboxed": true,
+    "filesystem": {
+      "read": {
+        "allowWithinDeny": ["~/.ssh/known_hosts"]
+      }
+    },
     "network": {
       "allowedDomains": [
-        "github.com",
-        "localhost",
-        "127.0.0.1",
-        "grafana.com",
-        "gitlab.cern.ch",
-        "*.claude.com",
         "*.anthropic.com",
-        "gitlab.com",
-        "raw.githubusercontent.com",
-        "objects.githubusercontent.com",
-        "pypi.org",
-        "files.pythonhosted.org",
-        "golang.org",
-        "go.dev",
-        "proxy.golang.org",
-        "sum.golang.org",
+        "*.cern.ch",
+        "*.claude.com",
+        "*.github.com",
+        "*.githubusercontent.com",
+        "*.gitlab.com",
+        "*.go.dev",
+        "*.golang.org",
         "*.googlesource.com",
-        "gopkg.in",
-        "opendev.org",
+        "*.gopkg.in",
+        "*.grafana.com",
+        "*.localhost",
         "*.opendev.org",
-        "openstack.org",
         "*.openstack.org",
+        "*.pypi.org",
+        "*.pythonhosted.org",
+        "*.schemastore.org",
+        "127.0.0.1",
         "192.168.1.10",
         "192.168.1.11",
         "192.168.1.12"
