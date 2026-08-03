@@ -17,7 +17,7 @@ Match Host *.cern.ch User root
     ForwardAgent no
     PubkeyAuthentication yes
 
-Host !lxtunnel.cern.ch !lxplus.cern.ch !aiadm.cern.ch !ciadm.cern.ch !lxtunnel !lxplus !aiadm !ciadm !gitlab.cern.ch
+Host *.cern.ch !lxtunnel.cern.ch !lxplus.cern.ch !aiadm.cern.ch !ciadm.cern.ch !lxtunnel !lxplus !aiadm !ciadm !gitlab.cern.ch
     User chbarnes
     PreferredAuthentications gssapi-with-mic,keyboard-interactive,password
     GSSAPIDelegateCredentials yes
@@ -33,3 +33,8 @@ Host lxtunnel.cern.ch ciadm.cern.ch lxplus.cern.ch aiadm.cern.ch lxtunnel ciadm 
     # SOCKS5 proxy for web, see below
     DynamicForward 8090
     ExitOnForwardFailure no
+
+Host aiadm aiadm.cern.ch ciadm ciadm.cern.ch
+    ControlMaster auto
+    ControlPath ~/.ssh/cm-%r@%h:%p
+    ControlPersist 8h

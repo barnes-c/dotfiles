@@ -90,7 +90,12 @@
       "WebSearch"
     ],
     "deny": [
-      "Read(~/.ssh/**)",
+      "Read(~/.ssh/id_*)",
+      "Read(~/.ssh/*_rsa)",
+      "Read(~/.ssh/*_ed25519)",
+      "Read(~/.ssh/*.pem)",
+      "Read(~/.ssh/*.key)",
+      "Read(~/.ssh/cern)",
       "Read(~/.aws/**)",
       "Read(~/.gnupg/**)",
       "Read(~/.env)",
@@ -118,7 +123,8 @@
     "enabled": true,
     "autoAllowBashIfSandboxed": true,
     "filesystem": {
-      "allowRead": ["~/.ssh/known_hosts"]
+      "allowRead": ["~/.ssh/known_hosts", "~/.config/gh"],
+      "allowWrite": ["~/.cache/gh"]
     },
     "network": {
       "allowUnixSockets": [
@@ -154,7 +160,6 @@
         "*.localhost",
         "opendev.org",
         "*.opendev.org",
-        "openstack.org",
         "*.openstack.org",
         "pypi.org",
         "*.pypi.org",
@@ -165,9 +170,26 @@
         "127.0.0.1",
         "192.168.1.10",
         "192.168.1.11",
-        "192.168.1.12"
+        "192.168.1.12",
+        "files.pythonhosted.org",
+        "*.github.com",
+        "*.gitlab.com",
+        "go.dev",
+        "golang.org",
+        "gopkg.in",
+        "grafana.com",
+        "localhost",
+        "*.githubusercontent.com",
+        "opendev.org",
+        "openstack.org",
+        "proxy.golang.org",
+        "pypi.org",
+        "*.openvswitch.org",
+        "raw.githubusercontent.com",
+        "sum.golang.org"
       ]
-    }
+    },
+    "enableWeakerNetworkIsolation": true
   },
   "awaySummaryEnabled": false,
   "fileCheckpointingEnabled": false,
