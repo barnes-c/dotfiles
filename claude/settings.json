@@ -118,17 +118,23 @@
     "autoAllowBashIfSandboxed": true,
     "filesystem": {
       "allowRead": ["~/.ssh/known_hosts", "~/.config/gh"],
-      "allowWrite": ["~/.cache/gh"]
+      "allowWrite": [
+        "~/.cache/gh",
+        "~/.config/containers",
+        "~/.local/share/containers"
+      ]
     },
     "network": {
       "allowUnixSockets": [
         "~/.local/share/containers/podman/machine/podman.sock",
-        "/Users/barnes-c/.local/share/containers/podman/machine/podman.sock"
+        "/Users/barnes-c/.local/share/containers/podman/machine/podman.sock",
+        "/var/folders/9q/59_dd28j5wv7kygrrx8hx2y40000gn/T/podman/podman-machine-default-api.sock"
       ],
       "allowedDomains": [
         "*.anthropic.com",
         "*.cern.ch",
         "*.claude.com",
+        "*.ghcr.io",
         "*.github.com",
         "*.githubusercontent.com",
         "*.gitlab.com",
@@ -136,16 +142,22 @@
         "*.golang.org",
         "*.googlesource.com",
         "*.gopkg.in",
+        "*.goreleaser.com",
         "*.grafana.com",
         "*.kernel.org",
+        "*.lkml.iu.edu",
         "*.localhost",
         "*.opendev.org",
         "*.openstack.org",
+        "*.opentelemetry.io",
         "*.openvswitch.org",
+        "*.packages.debian.org",
         "*.pypi.org",
         "*.pythonhosted.org",
         "*.rubygems.org",
         "*.schemastore.org",
+        "*.siderolabs.com",
+        "*.talos.dev",
         "127.0.0.1",
         "192.168.1.10",
         "192.168.1.11",
@@ -154,6 +166,7 @@
         "cern.ch",
         "claude.com",
         "files.pythonhosted.org",
+        "ghcr.io",
         "github.com",
         "githubusercontent.com",
         "gitlab.com",
@@ -161,18 +174,24 @@
         "golang.org",
         "googlesource.com",
         "gopkg.in",
+        "goreleaser.com",
         "grafana.com",
         "kernel.org",
+        "lkml.iu.edu",
         "localhost",
         "opendev.org",
         "openstack.org",
+        "opentelemetry.io",
+        "packages.debian.org",
         "proxy.golang.org",
         "pypi.org",
         "pythonhosted.org",
         "raw.githubusercontent.com",
         "rubygems.org",
         "schemastore.org",
-        "sum.golang.org"
+        "siderolabs.com",
+        "sum.golang.org",
+        "talos.dev"
       ]
     },
     "enableWeakerNetworkIsolation": true
