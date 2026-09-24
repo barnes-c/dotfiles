@@ -29,6 +29,7 @@
 [core]
 	editor = "vim"
 	excludesfile = ~/.gitignore
+	hooksPath = ~/.config/git/hooks
 
 [pull]
 	rebase = true

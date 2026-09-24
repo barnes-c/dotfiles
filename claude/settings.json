@@ -1,12 +1,125 @@
 {
-  "env": {
-    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
-    "CONTAINER_HOST": "unix:///Users/barnes-c/.local/share/containers/podman/machine/podman.sock",
-    "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "70"
+  "awaySummaryEnabled" : false,
+  "enabledPlugins" : {
+    "gopls-lsp@claude-plugins-official" : true
   },
-  "permissions": {
-    "allow": [
-      "Bash(curl -s http://localhost:10054/metrics)",
+  "env" : {
+    "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE" : "70",
+    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC" : "1",
+    "CONTAINER_HOST" : "unix:\/\/\/Users\/barnes-c\/.local\/share\/containers\/podman\/machine\/podman.sock"
+  },
+  "fileCheckpointingEnabled" : false,
+  "hooks" : {
+    "Notification" : [
+      {
+        "hooks" : [
+          {
+            "command" : "\/Users\/barnes-c\/.config\/iterm2\/cc-status",
+            "type" : "command"
+          }
+        ]
+      }
+    ],
+    "PermissionRequest" : [
+      {
+        "hooks" : [
+          {
+            "command" : "\/Users\/barnes-c\/.config\/iterm2\/cc-status",
+            "type" : "command"
+          }
+        ]
+      }
+    ],
+    "PostToolUse" : [
+      {
+        "hooks" : [
+          {
+            "command" : "\/Users\/barnes-c\/.config\/iterm2\/cc-status",
+            "type" : "command"
+          }
+        ]
+      }
+    ],
+    "PreToolUse" : [
+      {
+        "hooks" : [
+          {
+            "command" : "\/Users\/barnes-c\/.config\/iterm2\/cc-status",
+            "type" : "command"
+          }
+        ]
+      }
+    ],
+    "SessionEnd" : [
+      {
+        "hooks" : [
+          {
+            "command" : "\/Users\/barnes-c\/.config\/iterm2\/cc-status",
+            "type" : "command"
+          }
+        ]
+      }
+    ],
+    "SessionStart" : [
+      {
+        "hooks" : [
+          {
+            "command" : "\/Users\/barnes-c\/.config\/iterm2\/cc-status",
+            "type" : "command"
+          }
+        ]
+      }
+    ],
+    "Stop" : [
+      {
+        "hooks" : [
+          {
+            "command" : "\/Users\/barnes-c\/.config\/iterm2\/cc-status",
+            "type" : "command"
+          }
+        ]
+      }
+    ],
+    "StopFailure" : [
+      {
+        "hooks" : [
+          {
+            "command" : "\/Users\/barnes-c\/.config\/iterm2\/cc-status",
+            "type" : "command"
+          }
+        ]
+      }
+    ],
+    "SubagentStop" : [
+      {
+        "hooks" : [
+          {
+            "command" : "\/Users\/barnes-c\/.config\/iterm2\/cc-status",
+            "type" : "command"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit" : [
+      {
+        "hooks" : [
+          {
+            "command" : "\/Users\/barnes-c\/.config\/iterm2\/cc-status",
+            "type" : "command"
+          }
+        ]
+      }
+    ]
+  },
+  "model" : "claude-opus-5",
+  "permissions" : {
+    "additionalDirectories" : [
+      "~\/.puppetlabs",
+      "~\/go",
+      "~\/Code"
+    ],
+    "allow" : [
+      "Bash(curl -s http:\/\/localhost:10054\/metrics)",
       "Bash(docker buildx imagetools inspect node:22-alpine)",
       "Bash(docker manifest inspect node:22-alpine)",
       "Bash(echo \"\\(yamllint exit: $?\\)\")",
@@ -24,7 +137,7 @@
       "Bash(goimports:*)",
       "Bash(goreleaser check *)",
       "Bash(grep:*)",
-      "Bash(kubeconform -strict -ignore-missing-schemas examples/k8s/)",
+      "Bash(kubeconform -strict -ignore-missing-schemas examples\/k8s\/)",
       "Bash(kubectl get svc -n sealed-secrets)",
       "Bash(kubeseal --version)",
       "Bash(make build *)",
@@ -35,11 +148,11 @@
       "Bash(make)",
       "Bash(podman compose *)",
       "Bash(yamllint:*)",
-      "Bash(~/.local/pipx/venvs/python-landbclient/bin/python -m flake8 landbclient/tests/unit/test_client.py landbclient/tests/unit/fixtures.py)",
-      "Bash(~/.local/pipx/venvs/python-landbclient/bin/python -m pip install flake8 flake8-docstrings hacking -q)",
-      "Read(//Users/barnes-c/.claude/**)",
-      "Read(//Users/barnes-c/Code/**)",
-      "Read(//Users/barnes-c/go/**)",
+      "Bash(~\/.local\/pipx\/venvs\/python-landbclient\/bin\/python -m flake8 landbclient\/tests\/unit\/test_client.py landbclient\/tests\/unit\/fixtures.py)",
+      "Bash(~\/.local\/pipx\/venvs\/python-landbclient\/bin\/python -m pip install flake8 flake8-docstrings hacking -q)",
+      "Read(\/\/Users\/barnes-c\/.claude\/**)",
+      "Read(\/\/Users\/barnes-c\/Code\/**)",
+      "Read(\/\/Users\/barnes-c\/go\/**)",
       "WebFetch(domain:*.anthropic.com)",
       "WebFetch(domain:*.cern.ch)",
       "WebFetch(domain:*.cilium.io)",
@@ -102,63 +215,45 @@
       "WebFetch(domain:wikipedia.org)",
       "WebSearch"
     ],
-    "deny": [
+    "defaultMode" : "default",
+    "deny" : [
       "Bash(git commit:*)",
-      "Read(~/.aws/**)",
-      "Read(~/.claude/.credentials.json)",
-      "Read(~/.claude/.config.json)",
-      "Read(~/.config/gh/**)",
-      "Read(~/.docker/**)",
-      "Read(~/.env)",
-      "Read(~/.git-credentials)",
-      "Read(~/.gnupg/**)",
-      "Read(~/.kube/**)",
-      "Read(~/.netrc)",
-      "Read(~/.ssh/*_ed25519)",
-      "Read(~/.ssh/*_rsa)",
-      "Read(~/.ssh/*.key)",
-      "Read(~/.ssh/*.pem)",
-      "Read(~/.ssh/cern)",
-      "Read(~/.ssh/id_*)",
+      "Read(~\/.aws\/**)",
+      "Read(~\/.claude\/.credentials.json)",
+      "Read(~\/.claude\/.config.json)",
+      "Read(~\/.config\/gh\/**)",
+      "Read(~\/.docker\/**)",
+      "Read(~\/.env)",
+      "Read(~\/.git-credentials)",
+      "Read(~\/.gnupg\/**)",
+      "Read(~\/.kube\/**)",
+      "Read(~\/.netrc)",
+      "Read(~\/.ssh\/*_ed25519)",
+      "Read(~\/.ssh\/*_rsa)",
+      "Read(~\/.ssh\/*.key)",
+      "Read(~\/.ssh\/*.pem)",
+      "Read(~\/.ssh\/cern)",
+      "Read(~\/.ssh\/id_*)",
       "Skill(update-config:*)"
-    ],
-    "defaultMode": "default",
-    "additionalDirectories": [
-      "~/.puppetlabs",
-      "~/go",
-      "~/Code"
     ]
   },
-  "model": "claude-opus-5",
-  "statusLine": {
-    "type": "command",
-    "command": "~/.claude/statusline.sh",
-    "refreshInterval": 30
-  },
-  "enabledPlugins": {
-    "gopls-lsp@claude-plugins-official": true
-  },
-  "sandbox": {
-    "enabled": true,
-    "autoAllowBashIfSandboxed": true,
-    "filesystem": {
-      "allowRead": [
-        "~/.ssh/known_hosts",
-        "~/.config/gh"
+  "sandbox" : {
+    "autoAllowBashIfSandboxed" : true,
+    "enabled" : true,
+    "enableWeakerNetworkIsolation" : true,
+    "filesystem" : {
+      "allowRead" : [
+        "~\/.ssh\/known_hosts",
+        "~\/.config\/gh"
       ],
-      "allowWrite": [
-        "~/.cache/gh",
-        "~/.config/containers",
-        "~/.local/share/containers"
+      "allowWrite" : [
+        "~\/.cache\/gh",
+        "~\/.config\/containers",
+        "~\/.local\/share\/containers"
       ]
     },
-    "network": {
-      "allowUnixSockets": [
-        "~/.local/share/containers/podman/machine/podman.sock",
-        "/Users/barnes-c/.local/share/containers/podman/machine/podman.sock",
-        "/var/folders/9q/59_dd28j5wv7kygrrx8hx2y40000gn/T/podman/podman-machine-default-api.sock"
-      ],
-      "allowedDomains": [
+    "network" : {
+      "allowedDomains" : [
         "*.anthropic.com",
         "*.cern.ch",
         "*.cilium.io",
@@ -238,11 +333,20 @@
         "talos.dev",
         "vcluster.com",
         "wikipedia.org"
+      ],
+      "allowUnixSockets" : [
+        "~\/.local\/share\/containers\/podman\/machine\/podman.sock",
+        "\/Users\/barnes-c\/.local\/share\/containers\/podman\/machine\/podman.sock",
+        "\/var\/folders\/9q\/59_dd28j5wv7kygrrx8hx2y40000gn\/T\/podman\/podman-machine-default-api.sock"
       ]
-    },
-    "enableWeakerNetworkIsolation": true
+    }
   },
-  "awaySummaryEnabled": false,
-  "fileCheckpointingEnabled": false,
-  "telemetry": false
+  "statusLine" : {
+    "command" : "~\/.claude\/statusline.sh",
+    "refreshInterval" : 30,
+    "type" : "command"
+  },
+  "telemetry" : false,
+  "theme" : "dark",
+  "tui" : "fullscreen"
 }

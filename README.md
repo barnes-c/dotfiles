@@ -26,6 +26,7 @@ To add a dotfile, commit it here and add an entry to `install.conf.yaml`. Don't 
 | `aliases`, `bash_profile`, `zshrc`         | `~/.aliases`, `~/.bash_profile`, `~/.zshrc`         | all             |
 | `gitconfig`, `gitconfig.cern`, `gitignore` | `~/.gitconfig`, `~/.gitconfig.cern`, `~/.gitignore` | all             |
 | `gitconfig.signers`                        | `~/.ssh/git_signers`                                | all             |
+| `githooks`                                 | `~/.config/git/hooks`                               | all             |
 | `sshconfig`                                | `~/.ssh/config`                                     | all             |
 | `claude`                                   | `~/.claude`                                         | macOS           |
 | `krb5.conf`                                | `/etc/krb5.conf`                                    | macOS           |
@@ -71,6 +72,18 @@ brew bundle dump --describe --force
 `gitconfig` holds the personal identity and conditionally includes `gitconfig.cern` via
 `includeIf "gitdir:"` for work checkouts under `~/Code/cern/` and the AFS home. Both sign
 commits with SSH keys; `gitconfig.signers` is the allowed-signers file used to verify them.
+
+## Git hooks
+
+`githooks/` is linked to `~/.config/git/hooks` and enabled globally through
+`core.hooksPath`, so it applies to every repository without per-repo setup.
+
+`commit-msg` strips AI attribution trailers (`Co-Authored-By:` naming an assistant,
+`Generated with [Claude Code]`) before a commit is written. Co-authors who are actual
+people are left alone. Because `core.hooksPath` takes precedence over a repository's own
+`.git/hooks`, the hook chains to a repo-local `commit-msg` first if one exists.
+
+Note that `git commit --no-verify` skips it.
 
 ## License
 

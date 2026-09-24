@@ -12,6 +12,7 @@
           ~/.gitconfig.cern: gitconfig.cern
           ~/.ssh/git_signers: gitconfig.signers
           ~/.gitignore: gitignore
+          ~/.config/git/hooks: githooks
           ~/.ssh/config: sshconfig
           ~/.zshrc: zshrc
           ~/.claude:

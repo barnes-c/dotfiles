@@ -1,0 +1,29 @@
+#!/bin/sh
+#
+# Strip AI attribution trailers from commit messages.
+#
+# Installed globally via core.hooksPath, which takes precedence over a repo's
+# own .git/hooks, so any repo-local commit-msg hook is chained first.
+
+set -e
+
+msg_file="$1"
+
+repo_hook="$(git rev-parse --git-dir)/hooks/commit-msg"
+if [ -x "$repo_hook" ]; then
+	"$repo_hook" "$@"
+fi
+
+pattern='(^[[:space:]]*co-authored-by:.*(anthropic|claude|copilot|cursor|aider|devin|codex))|(generated with[[:space:]]*\[?(claude|cursor|copilot|codex))'
+
+if ! grep -qiE "$pattern" "$msg_file"; then
+	exit 0
+fi
+
+# Drop the offending lines, then any blank lines left dangling at the end.
+tmp="$msg_file.noai"
+grep -ivE "$pattern" "$msg_file" |
+	awk 'NF{last=NR} {line[NR]=$0} END{for(i=1;i<=last;i++) print line[i]}' >"$tmp"
+mv "$tmp" "$msg_file"
+
+echo "commit-msg: stripped AI attribution from commit message" >&2
