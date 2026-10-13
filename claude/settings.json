@@ -104,6 +104,7 @@
     ],
     "deny": [
       "Bash(git commit:*)",
+      "Bash(git -c:*)",
       "Read(~/.aws/**)",
       "Read(~/.claude/.credentials.json)",
       "Read(~/.claude/.config.json)",
@@ -129,7 +130,7 @@
       "~/Code"
     ]
   },
-  "model": "opus",
+  "model": "opus[1m]",
   "hooks": {
     "Notification": [
       {
@@ -162,6 +163,15 @@
       }
     ],
     "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 /Users/barnes-c/.claude/hooks/deny-git-commit.py"
+          }
+        ]
+      },
       {
         "hooks": [
           {
@@ -239,6 +249,14 @@
   },
   "enabledPlugins": {
     "gopls-lsp@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "blowfish": {
+      "source": {
+        "source": "github",
+        "repo": "nunocoracao/blowfish"
+      }
+    }
   },
   "sandbox": {
     "enabled": true,
@@ -343,6 +361,12 @@
       ]
     },
     "enableWeakerNetworkIsolation": true
+  },
+  "effortLevel": "high",
+  "modelSettings": {
+    "claude-opus-5-5": {
+      "effortLevel": "medium"
+    }
   },
   "awaySummaryEnabled": false,
   "tui": "fullscreen",

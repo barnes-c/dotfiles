@@ -34,7 +34,8 @@ Host lxtunnel.cern.ch ciadm.cern.ch lxplus.cern.ch aiadm.cern.ch lxtunnel ciadm 
     DynamicForward 8090
     ExitOnForwardFailure no
 
-Host aiadm aiadm.cern.ch ciadm ciadm.cern.ch
+Host aiadm aiadm.cern.ch ciadm ciadm.cern.ch lxplus lxplus.cern.ch lxtunnel lxtunnel.cern.ch
     ControlMaster auto
-    ControlPath ~/.ssh/cm-%r@%h:%p
+    # not ~/.ssh: AFS homes (CERN hosts) can't hold unix sockets
+    ControlPath /tmp/ssh-cm-%C
     ControlPersist 8h

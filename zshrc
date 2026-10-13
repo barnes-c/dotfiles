@@ -61,6 +61,11 @@ if [[ "$OSTYPE" == darwin* ]]; then
   export CPPFLAGS="-I/opt/homebrew/opt/openssl/include"
   export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl/lib/pkgconfig"
 
+  # GNU coreutils under their normal names (prepend so they shadow the BSD tools)
+  if [ -d /opt/homebrew/opt/coreutils/libexec/gnubin ]; then
+    export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+  fi
+
   # VS Code
   export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
   # Python
