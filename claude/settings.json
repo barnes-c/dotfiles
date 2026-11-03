@@ -2,7 +2,10 @@
   "env": {
     "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "70",
     "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
-    "CONTAINER_HOST": "unix:///Users/barnes-c/.local/share/containers/podman/machine/podman.sock"
+    "CONTAINER_HOST": "unix:///Users/barnes-c/.local/share/containers/podman/machine/podman.sock",
+    "OS_CLIENT_CONFIG_FILE": "/Users/barnes-c/.config/openstack/claude-readonly.yaml",
+    "OS_CLOUD": "readonly",
+    "KUBECONFIG": "/Users/barnes-c/.config/homelab/agent.kubeconfig"
   },
   "permissions": {
     "allow": [
@@ -33,6 +36,9 @@
       "Bash(make lint *)",
       "Bash(make test *)",
       "Bash(make)",
+      "Bash(openstack * list)",
+      "Bash(openstack * list *)",
+      "Bash(openstack * show *)",
       "Bash(podman compose *)",
       "Bash(yamllint:*)",
       "Bash(~/.local/pipx/venvs/python-landbclient/bin/python -m flake8 landbclient/tests/unit/test_client.py landbclient/tests/unit/fixtures.py)",
@@ -105,6 +111,16 @@
     "deny": [
       "Bash(git commit:*)",
       "Bash(git -c:*)",
+      "Bash(*--os-*)",
+      "Bash(*OS_CLOUD*)",
+      "Bash(*OS_CLIENT_CONFIG_FILE*)",
+      "Bash(*OS_AUTH*)",
+      "Bash(*OS_TOKEN*)",
+      "Bash(*OS_APPLICATION_CREDENTIAL*)",
+      "Bash(*OS_USERNAME*)",
+      "Bash(*OS_PASSWORD*)",
+      "Bash(*KUBECONFIG*)",
+      "Bash(*--kubeconfig*)",
       "Read(~/.aws/**)",
       "Read(~/.claude/.credentials.json)",
       "Read(~/.claude/.config.json)",
@@ -372,5 +388,39 @@
   "tui": "fullscreen",
   "theme": "dark",
   "fileCheckpointingEnabled": false,
+  "autoMode": {
+    "soft_deny": [
+      "$defaults",
+      "Bash(terraform:apply) in cluster/tofu/ and Bash(tofu:apply) in cluster/tofu/ — protected IaC scope",
+      "Bash(talosctl:upgrade) and Bash(talosctl:reset) — node lifecycle / --wipe-mode system-disk is irreversible without PXE fallback per CLAUDE.md"
+    ],
+    "environment": [
+      "### Org-wide",
+      "**Organization**: None configured",
+      "**Cloud provider(s)**: None configured",
+      "**Repository visibility**: Not queryable via gh (nonessential traffic disabled or policy-restricted); inferred from remote: github.com:barnes-c/homelab.git — CLAUDE.md states this repo is public (issues were moved to the private barnes-c/homelab-issues repo specifically because this repo is public)",
+      "**Internal sharing / snippet hosting**: None configured — treat public paste/gist services as outside the trust boundary",
+      "**Secrets management**: SealedSecrets (sealed via scripts/create-secrets.sh, namespace-scoped) and external-secrets; secret-bearing manifests live under manifests/infrastructure/authentik/, manifests/workloads/asurascans/, manifests/workloads/barnes-biz/",
+      "**Default / protected branches**: Default branch is master; protection/ruleset status not queryable via gh here — treat master as protected by default given this is a public repo",
+      "**CI/CD deploy targets**: ArgoCD (apps-root watches apps/, syncs manifests/) on the homelab Talos cluster; OpenTofu manages cluster bootstrap (cluster/tofu/)",
+      "**Network posture**: None configured",
+      "**Host containment**: None configured — assume Claude Code runs on an ordinary developer machine with open internet",
+      "**Source control**: Trusted repo (barnes-c/homelab on github.com) and its origin remote only",
+      "**Trusted internal domains**: barnes.biz and its subdomains (comments.barnes.biz, blog.barnes.biz, stats.barnes.biz, auth.barnes.biz, img-lan.barnes.biz, argo.barnes.biz, monitoring.barnes.biz) — seen repeatedly in Hosts contacted; local registry 192.168.1.18:5005",
+      "**Trusted cloud buckets**: None configured",
+      "**Key internal services**: Local container registry at 192.168.1.18:5005 (talos/ prefix); ArgoCD at argo.barnes.biz; monitoring at monitoring.barnes.biz; Authentik at auth.barnes.biz; Porkbun API (DNS, used by ACME DNS-01 solver and ddns CronJob)",
+      "**Internal package registry**: None configured",
+      "**Sensitive data locations & audiences**: manifests/infrastructure/authentik/authentik-secrets.yaml, manifests/infrastructure/authentik/smtp-credentials.yaml, manifests/workloads/asurascans/asurascans-credentials.yaml, manifests/workloads/barnes-biz/smtp-credentials.yaml, cluster/tofu/terraform.tfstate and terraform.tfstate.backup, scripts/create-secrets.sh — share only with audiences cleared at the [named+specifics] bar",
+      "**Data retention / declassification**: None configured",
+      "**Sensitive remote targets**: any namespace/host/container matching `prod`/`production` as a whole word or segment (none currently named in this repo; cluster namespaces are asurascans, authentik, argocd, immich, external-secrets, sealed-secrets)",
+      "**Protected deployment namespaces / environments**: None configured — fall back to the Sensitive remote targets heuristic",
+      "**Protected IaC scopes**: cluster/tofu/ (argocd.tf, cilium.tf, gateway-api.tf, talos.tf, variables.tf, providers.tf, outputs.tf, versions.tf, terraform.tfstate*) — IAM, RBAC, networking, quota, and node-pool resources therein; anything tagged prod/production",
+      "### User-specific",
+      "**Primary use of Claude Code**: software development (homelab infrastructure — Talos/Kubernetes/ArgoCD/OpenTofu GitOps)",
+      "**Trusted repo**: barnes-c/homelab (public) — this working directory and its origin remote on github.com",
+      "**Org-specific CLIs**: talosctl, kubectl, kc, helm, kubeseal, crane, podman, tofu (OpenTofu), gmake (note: use gmake not make — macOS ships GNU Make 3.81, Makefile needs 4.0+)",
+      "Routine under barnes-c/ prefix: GitHub operations (gh issue list -R barnes-c/homelab-issues, gh commands) scoped to the barnes-c org/user"
+    ]
+  },
   "telemetry": false
 }
