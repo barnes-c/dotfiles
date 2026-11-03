@@ -3,7 +3,7 @@
     "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "70",
     "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
     "CONTAINER_HOST": "unix:///Users/barnes-c/.local/share/containers/podman/machine/podman.sock",
-    "OS_CLIENT_CONFIG_FILE": "/Users/barnes-c/.config/openstack/claude-readonly.yaml",
+    "OS_CLIENT_CONFIG_FILE": "/Users/barnes-c/.config/openstack/clouds.yaml",
     "OS_CLOUD": "readonly",
     "KUBECONFIG": "/Users/barnes-c/.config/homelab/agent.kubeconfig"
   },
@@ -111,9 +111,12 @@
     "deny": [
       "Bash(git commit:*)",
       "Bash(git -c:*)",
-      "Bash(*--os-*)",
-      "Bash(*OS_CLOUD*)",
-      "Bash(*OS_CLIENT_CONFIG_FILE*)",
+      "Bash(*--os-auth*)",
+      "Bash(*--os-token*)",
+      "Bash(*--os-application-credential*)",
+      "Bash(*--os-user*)",
+      "Bash(*--os-password*)",
+      "Bash(*OS_CLIENT_*)",
       "Bash(*OS_AUTH*)",
       "Bash(*OS_TOKEN*)",
       "Bash(*OS_APPLICATION_CREDENTIAL*)",
@@ -140,11 +143,7 @@
       "Skill(update-config:*)"
     ],
     "defaultMode": "auto",
-    "additionalDirectories": [
-      "~/.puppetlabs",
-      "~/go",
-      "~/Code"
-    ]
+    "additionalDirectories": ["~/.puppetlabs", "~/go", "~/Code"]
   },
   "model": "opus[1m]",
   "hooks": {
@@ -371,10 +370,7 @@
         "~/.config/containers",
         "~/.local/share/containers"
       ],
-      "allowRead": [
-        "~/.ssh/known_hosts",
-        "~/.config/gh"
-      ]
+      "allowRead": ["~/.ssh/known_hosts", "~/.config/gh"]
     },
     "enableWeakerNetworkIsolation": true
   },
