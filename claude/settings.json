@@ -58,6 +58,8 @@
       "Bash(openstack network list *)",
       "Bash(openstack network show *)",
       "Bash(openstack port list)",
+      "Bash(NO_PROXY=localhost no_proxy=localhost KUBECONFIG=~/.config/homelab/agent.kubeconfig kubectl get:*)",
+      "Bash(NO_PROXY=localhost no_proxy=localhost KUBECONFIG=~/.config/homelab/agent.kubeconfig kubectl logs:*)",
       "Bash(openstack port list *)",
       "Bash(openstack port show *)",
       "Bash(openstack project list)",
