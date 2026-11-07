@@ -5,6 +5,7 @@
     "CONTAINER_HOST": "unix:///Users/barnes-c/.local/share/containers/podman/machine/podman.sock",
     "OS_CLIENT_CONFIG_FILE": "/Users/barnes-c/.config/openstack/clouds.yaml",
     "OS_CLOUD": "readonly",
+    "FINANCE_PROJECT_DIR": "/Users/barnes-c/Code/finance",
     "KUBECONFIG": "/Users/barnes-c/.config/homelab/agent.kubeconfig"
   },
   "permissions": {
