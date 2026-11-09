@@ -1,0 +1,75 @@
+# Sandbox VM for `claude --dangerously-skip-permissions`
+minimumLimaVersion: 2.0.0
+base:
+- template:_images/ubuntu-24.04   # image only; deliberately NOT _default/mounts (would expose ~ read-only)
+
+vmType: vz
+cpus: 4
+memory: 8GiB
+disk: 40GiB
+
+# Only this one directory is shared with the host.
+mounts:
+- location: "~/Code/claude-work"
+  mountPoint: "/work"
+  writable: true
+
+# No SSH agent / host credentials forwarded into the guest.
+ssh:
+  forwardAgent: false
+  loadDotSSHPubKeys: false
+
+containerd:
+  system: false
+  user: false
+
+provision:
+- mode: system
+  script: |
+    #!/bin/bash
+    set -eux
+    export DEBIAN_FRONTEND=noninteractive
+    if ! command -v ipset >/dev/null; then
+      apt-get update
+      apt-get install -y git curl jq ripgrep build-essential iptables ipset dnsutils ca-certificates
+    fi
+
+- mode: system
+  script: |
+    #!/bin/bash
+    # Egress allowlist firewall, re-applied on every boot.
+    set -euo pipefail
+    DOMAINS=(
+      api.anthropic.com claude.ai console.anthropic.com platform.claude.com
+      statsig.anthropic.com statsig.com sentry.io
+      downloads.claude.ai storage.googleapis.com
+      registry.npmjs.org pypi.org files.pythonhosted.org
+      proxy.golang.org sum.golang.org
+    )
+    iptables -F OUTPUT; ipset destroy allowed 2>/dev/null || true
+    ipset create allowed hash:net
+    for d in "${DOMAINS[@]}"; do
+      for ip in $(dig +short A "$d" | grep -E '^[0-9.]+$'); do ipset add -exist allowed "$ip"; done
+    done
+    for cidr in $(curl -fsS https://api.github.com/meta | jq -r '(.web+.api+.git)[]' | grep -v ':'); do
+      ipset add -exist allowed "$cidr"
+    done
+    iptables -A OUTPUT -o lo -j ACCEPT
+    iptables -A OUTPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+    iptables -A OUTPUT -p udp --dport 53 -j ACCEPT
+    iptables -A OUTPUT -p tcp --dport 53 -j ACCEPT
+    iptables -A OUTPUT -m set --match-set allowed dst -j ACCEPT
+    iptables -A OUTPUT -j REJECT --reject-with icmp-admin-prohibited
+    ip6tables -F OUTPUT
+    ip6tables -A OUTPUT -o lo -j ACCEPT
+    ip6tables -A OUTPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+    ip6tables -A OUTPUT -j REJECT
+    # sanity check
+    if curl -fsS --max-time 5 https://example.com >/dev/null; then echo "FIREWALL BROKEN"; exit 1; fi
+
+- mode: user
+  script: |
+    #!/bin/bash
+    set -eux
+    command -v claude >/dev/null || [ -x ~/.local/bin/claude ] || curl -fsSL https://claude.ai/install.sh | bash
+    grep -q '.local/bin' ~/.bashrc || echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc

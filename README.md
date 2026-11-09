@@ -30,6 +30,7 @@ To add a dotfile, commit it here and add an entry to `install.conf.yaml`. Don't 
 | `sshconfig`                                | `~/.ssh/config`                                     | all             |
 | `claude`                                   | `~/.claude`                                         | macOS           |
 | `krb5.conf`                                | `/etc/krb5.conf`                                    | macOS           |
+| `lima/claude.yaml`                         | `~/.lima/_templates/claude.yaml`                    | macOS           |
 | `krb5.conf`                                | `~/krb5.conf`                                       | Linux           |
 | `hosts`                                    | `/etc/hosts`                                        | Linux, non-CERN |
 
@@ -84,6 +85,23 @@ people are left alone. Because `core.hooksPath` takes precedence over a reposito
 `.git/hooks`, the hook chains to a repo-local `commit-msg` first if one exists.
 
 Note that `git commit --no-verify` skips it.
+
+## Claude sandbox VM
+
+`lima/claude.yaml` is a Lima VM for running `claude --dangerously-skip-permissions`. Only
+`~/Code/claude-work` is shared with the host (as `/work`), no SSH agent or keys are forwarded,
+and egress is restricted to an allowlist (Anthropic, GitHub, package registries) re-applied
+on every boot. Extend `DOMAINS` in the file to allow more hosts.
+
+```bash
+mkdir -p ~/Code/claude-work
+limactl start --name=claude template:claude
+limactl shell --workdir /work claude
+claude --dangerously-skip-permissions
+```
+
+Snapshot a clean state with `limactl snapshot create claude --tag clean` (VM stopped) and roll
+back with `limactl snapshot apply claude --tag clean`.
 
 ## License
 

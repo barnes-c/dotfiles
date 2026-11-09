@@ -25,7 +25,8 @@ never symlink by hand.
 
 Link targets are conditional on platform via `if:` guards in the config:
 
-- `claude/` → `~/.claude` and `krb5.conf` → `/etc/krb5.conf` are macOS-only
+- `claude/` → `~/.claude`, `krb5.conf` → `/etc/krb5.conf` and `lima/claude.yaml` →
+  `~/.lima/_templates/claude.yaml` are macOS-only
 - `krb5.conf` → `~/krb5.conf` and `hosts` → `/etc/hosts` are Linux-only, and the `/etc/hosts`
   link is further suppressed on CERN hosts (which manage their own)
 

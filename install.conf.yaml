@@ -21,6 +21,9 @@
           /etc/krb5.conf:
                   path: krb5.conf
                   if: '[ "$(uname)" = Darwin ]'
+          ~/.lima/_templates/claude.yaml:
+                  path: lima/claude.yaml
+                  if: '[ "$(uname)" = Darwin ]'
           ~/krb5.conf:
                   path: krb5.conf
                   if: '[ "$(uname)" = Linux ]'
