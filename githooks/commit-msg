@@ -9,7 +9,7 @@ set -e
 
 msg_file="$1"
 
-repo_hook="$(git rev-parse --git-dir)/hooks/commit-msg"
+repo_hook="$(git rev-parse --git-common-dir)/hooks/commit-msg"
 if [ -x "$repo_hook" ]; then
 	"$repo_hook" "$@"
 fi
