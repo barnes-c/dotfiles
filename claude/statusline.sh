@@ -8,6 +8,10 @@ CTX=$(jq -r '.context_window.used_percentage // 0' <<<"$input" | cut -d. -f1)
 SESS=$(jq -r '.rate_limits.five_hour.used_percentage // empty' <<<"$input")
 WEEK=$(jq -r '.rate_limits.seven_day.used_percentage // empty' <<<"$input")
 RESET=$(jq -r '.rate_limits.five_hour.resets_at // empty' <<<"$input")
+EFFORT=$(jq -r '.effort.level // empty' <<<"$input")
+WORKTREE=$(jq -r '.workspace.git_worktree // .worktree.name // empty' <<<"$input")
+PR_NUM=$(jq -r '.pr.number // empty' <<<"$input")
+PR_URL=$(jq -r '.pr.url // empty' <<<"$input")
 
 CYAN=$'\033[36m'; GREEN=$'\033[32m'; YELLOW=$'\033[33m'; RED=$'\033[31m'
 DIM=$'\033[2m'; OFF=$'\033[0m'
@@ -24,15 +28,20 @@ bar() { # $1 = percent (int) -> 10-char colored progress bar
   printf '%s' "${color}${f// /█}${OFF}${DIM}${e// /░}${OFF}"
 }
 
-# Line 1: directory + git branch
+# Line 1: directory + git branch + worktree + open MR/PR
 LINE1="${DIR##*/}"
 if BRANCH=$(git -C "$DIR" branch --show-current 2>/dev/null) && [ -n "$BRANCH" ]; then
   LINE1="$LINE1 ⎇ $BRANCH"
 fi
+[ -n "$WORKTREE" ] && LINE1="$LINE1 ${DIM}(wt: $WORKTREE)${OFF}"
+if [ -n "$PR_NUM" ]; then
+  [[ $PR_URL == */merge_requests/* ]] && P='!' || P='#'
+  LINE1="$LINE1  ${CYAN}${P}${PR_NUM}${OFF}"
+fi
 printf '%s\n' "$LINE1"
 
-# Line 2: model + context window + session (5h) + week (7d) usage
-LINE2="${CYAN}[$MODEL]${OFF} ctx $(bar "$CTX") ${CTX}%"
+# Line 2: model + effort + context window + session (5h) + week (7d) usage
+LINE2="${CYAN}[$MODEL${EFFORT:+ · $EFFORT}]${OFF} ctx $(bar "$CTX") ${CTX}%"
 if [ -n "$SESS" ]; then
   S=$(printf '%.0f' "$SESS")
   EXTRA=""
