@@ -8,6 +8,11 @@
     "FINANCE_PROJECT_DIR": "/Users/barnes-c/Code/finance",
     "KUBECONFIG": "/Users/barnes-c/.config/homelab/agent.kubeconfig"
   },
+  "attribution": {
+    "commit": "",
+    "pr": "",
+    "sessionUrl": false
+  },
   "permissions": {
     "allow": [
       "Bash(curl -s http://localhost:10054/metrics)",
@@ -184,10 +189,12 @@
       "Skill(update-config:*)"
     ],
     "defaultMode": "auto",
-    "additionalDirectories": ["~/.puppetlabs", "~/go", "~/Code"]
+    "additionalDirectories": [
+      "~/.puppetlabs",
+      "~/go",
+      "~/Code"
+    ]
   },
-  "model": "opus[1m]",
-  "attribution": false,
   "hooks": {
     "Notification": [
       {
@@ -412,7 +419,10 @@
         "~/.config/containers",
         "~/.local/share/containers"
       ],
-      "allowRead": ["~/.ssh/known_hosts", "~/.config/gh"]
+      "allowRead": [
+        "~/.ssh/known_hosts",
+        "~/.config/gh"
+      ]
     },
     "enableWeakerNetworkIsolation": true
   },
