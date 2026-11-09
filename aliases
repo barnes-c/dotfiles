@@ -28,6 +28,20 @@ alias python="python3"
 alias tf="tofu"
 alias terraform="tofu"
 
+# Claude Code on the CERN AI gateway (LiteLLM, Anthropic /v1/messages).
+# Defaults to the most capable model our team gets; CLAUDE_GLM_MODEL=glm-5.3-flash-int4 for GLM.
+# Every model tier maps to it: the gateway knows no Claude model ids.
+claude-glm() {
+  local model="${CLAUDE_GLM_MODEL:-qwen3.8-27b-fp16}"
+  ANTHROPIC_BASE_URL="https://aigw.cern.ch" \
+  ANTHROPIC_AUTH_TOKEN="$(<"$HOME/.config/aigw/api-key")" \
+  ANTHROPIC_DEFAULT_OPUS_MODEL="$model" \
+  ANTHROPIC_DEFAULT_SONNET_MODEL="$model" \
+  ANTHROPIC_DEFAULT_HAIKU_MODEL="$model" \
+  CLAUDE_CODE_SUBAGENT_MODEL="$model" \
+  claude --model "$model" "$@"
+}
+
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
         colorflag="--color"
