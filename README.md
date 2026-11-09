@@ -100,8 +100,12 @@ limactl shell --workdir /work claude
 claude --dangerously-skip-permissions
 ```
 
-Snapshot a clean state with `limactl snapshot create claude --tag clean` (VM stopped) and roll
-back with `limactl snapshot apply claude --tag clean`.
+`limactl snapshot` is not implemented for `vz`, so keep a stopped clone as the clean state:
+
+```bash
+limactl stop claude && limactl clone claude claude-clean               # save
+limactl delete -f claude && limactl clone claude-clean claude --start  # roll back
+```
 
 ## License
 
