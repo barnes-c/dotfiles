@@ -3,10 +3,11 @@
     "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "70",
     "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
     "CONTAINER_HOST": "unix:///Users/barnes-c/.local/share/containers/podman/machine/podman.sock",
+    "FINANCE_PROJECT_DIR": "/Users/barnes-c/Code/finance",
+    "KUBECONFIG": "/Users/barnes-c/.config/homelab/agent.kubeconfig",
     "OS_CLIENT_CONFIG_FILE": "/Users/barnes-c/.config/openstack/clouds.yaml",
     "OS_CLOUD": "readonly",
-    "FINANCE_PROJECT_DIR": "/Users/barnes-c/Code/finance",
-    "KUBECONFIG": "/Users/barnes-c/.config/homelab/agent.kubeconfig"
+    "TALOSCONFIG": "/Users/barnes-c/.config/homelab/agent.talosconfig"
   },
   "attribution": {
     "commit": "",
@@ -155,24 +156,28 @@
       "WebSearch"
     ],
     "deny": [
-      "Bash(git commit:*)",
-      "Bash(git -c:*)",
-      "Bash(*--os-auth*)",
-      "Bash(*--os-token*)",
-      "Bash(*--os-application-credential*)",
-      "Bash(*--os-user*)",
-      "Bash(*--os-password*)",
-      "Bash(*OS_CLIENT_*)",
-      "Bash(*OS_AUTH*)",
-      "Bash(*OS_TOKEN*)",
-      "Bash(*OS_APPLICATION_CREDENTIAL*)",
-      "Bash(*OS_USERNAME*)",
-      "Bash(*OS_PASSWORD*)",
-      "Bash(*KUBECONFIG*)",
       "Bash(*--kubeconfig*)",
+      "Bash(*--os-application-credential*)",
+      "Bash(*--os-auth*)",
+      "Bash(*--os-password*)",
+      "Bash(*--os-token*)",
+      "Bash(*--os-user*)",
+      "Bash(*--talosconfig*)",
+      "Bash(*/.talos*)",
+      "Bash(*KUBECONFIG*)",
+      "Bash(*OS_APPLICATION_CREDENTIAL*)",
+      "Bash(*OS_AUTH*)",
+      "Bash(*OS_CLIENT_*)",
+      "Bash(*OS_PASSWORD*)",
+      "Bash(*OS_TOKEN*)",
+      "Bash(*OS_USERNAME*)",
+      "Bash(*TALOSCONFIG*)",
+      "Bash(git -c:*)",
+      "Bash(git commit:*)",
+      "Bash(talosctl config:*)",
       "Read(~/.aws/**)",
-      "Read(~/.claude/.credentials.json)",
       "Read(~/.claude/.config.json)",
+      "Read(~/.claude/.credentials.json)",
       "Read(~/.config/gh/**)",
       "Read(~/.docker/**)",
       "Read(~/.env)",
@@ -186,14 +191,11 @@
       "Read(~/.ssh/*.pem)",
       "Read(~/.ssh/cern)",
       "Read(~/.ssh/id_*)",
+      "Read(~/.talos/**)",
       "Skill(update-config:*)"
     ],
     "defaultMode": "auto",
-    "additionalDirectories": [
-      "~/.puppetlabs",
-      "~/go",
-      "~/Code"
-    ]
+    "additionalDirectories": ["~/.puppetlabs", "~/go", "~/Code"]
   },
   "hooks": {
     "Notification": [
@@ -419,10 +421,7 @@
         "~/.config/containers",
         "~/.local/share/containers"
       ],
-      "allowRead": [
-        "~/.ssh/known_hosts",
-        "~/.config/gh"
-      ]
+      "allowRead": ["~/.ssh/known_hosts", "~/.config/gh"]
     },
     "enableWeakerNetworkIsolation": true
   },
