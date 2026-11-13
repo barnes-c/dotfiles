@@ -28,6 +28,20 @@ alias python="python3"
 alias tf="tofu"
 alias terraform="tofu"
 
+# homelab: GitLab-managed state and its encryption passphrase, only inside cluster/tofu.
+tofu() {
+  if [[ ${PWD:l} == ${HOME:l}/code/homelab/cluster/tofu* ]]; then
+    local state="https://gitlab.com/api/v4/projects/88914535/terraform/state/homelab"
+    TF_HTTP_ADDRESS="$state" TF_HTTP_LOCK_ADDRESS="$state/lock" TF_HTTP_UNLOCK_ADDRESS="$state/lock" \
+    TF_HTTP_USERNAME=barnes-c \
+    TF_HTTP_PASSWORD="$(security find-generic-password -s homelab-tofu-gitlab-token -w)" \
+    TF_VAR_state_passphrase="$(security find-generic-password -s homelab-tofu-state-passphrase -w)" \
+      command tofu "$@"
+  else
+    command tofu "$@"
+  fi
+}
+
 # Claude Code on the CERN AI gateway (LiteLLM, Anthropic /v1/messages).
 # Defaults to the most capable model our team gets; CLAUDE_GLM_MODEL=glm-5.3-flash-int4 for GLM.
 # Every model tier maps to it: the gateway knows no Claude model ids.
