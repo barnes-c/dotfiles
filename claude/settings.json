@@ -347,6 +347,7 @@
         "*.grafana.com",
         "*.heyitsas.im",
         "*.jeffgeerling.com",
+        "*.googleapis.com",
         "*.kernel.org",
         "*.lkml.iu.edu",
         "*.localhost",
