@@ -3,11 +3,11 @@
     "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "70",
     "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
     "CONTAINER_HOST": "unix:///Users/barnes-c/.local/share/containers/podman/machine/podman.sock",
-    "FINANCE_PROJECT_DIR": "/Users/barnes-c/Code/finance",
     "KUBECONFIG": "/Users/barnes-c/.config/homelab/agent.kubeconfig",
     "OS_CLIENT_CONFIG_FILE": "/Users/barnes-c/.config/openstack/clouds.yaml",
     "OS_CLOUD": "readonly",
-    "TALOSCONFIG": "/Users/barnes-c/.config/homelab/agent.talosconfig"
+    "TALOSCONFIG": "/Users/barnes-c/.config/homelab/agent.talosconfig",
+    "GLAB_CONFIG_DIR": "/Users/barnes-c/.config/glab"
   },
   "attribution": {
     "commit": "",
@@ -192,6 +192,9 @@
       "Read(~/.ssh/cern)",
       "Read(~/.ssh/id_*)",
       "Read(~/.talos/**)",
+      "Bash(*GLAB_CONFIG_DIR*)",
+      "Bash(*glab-cli*)",
+      "Read(~/Library/Application Support/glab-cli/**)",
       "Skill(update-config:*)"
     ],
     "defaultMode": "auto",
